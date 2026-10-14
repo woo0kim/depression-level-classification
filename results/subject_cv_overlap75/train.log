@@ -1,0 +1,584 @@
+124 labelled subjects, segments (124, 1197, 2, 128), device mps
+  severity counts (None/Mild/Severe): [69, 34, 21]
+  recordings without label (excluded): ['K015_D1_resting_RECT', 'TRD039_CLH_20230829_RECT', 'TRD049_20250324_RECT', 'nTRD029_LLH_20230905_RECT']
+
+=== c1_none_vs_dep: None vs (Mild + Severe)  (69 vs 55 subjects)
+  [c1_none_vs_dep] fold 1/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6592  val 0.7788  val_bacc 0.481  7.2s  *
+    epoch   2  train 0.6273  val 0.8074  val_bacc 0.482  6.8s
+    epoch   3  train 0.6159  val 0.8094  val_bacc 0.484  4.1s
+    epoch   4  train 0.6078  val 0.8114  val_bacc 0.484  6.9s
+    epoch   5  train 0.5981  val 0.8161  val_bacc 0.492  5.7s
+    epoch   6  train 0.5893  val 0.9366  val_bacc 0.499  5.7s
+    epoch   7  train 0.5767  val 0.9287  val_bacc 0.529  6.5s
+    epoch   8  train 0.5627  val 1.0000  val_bacc 0.498  6.8s
+    epoch   9  train 0.5505  val 1.1681  val_bacc 0.500  7.1s
+    epoch  10  train 0.5420  val 1.1185  val_bacc 0.495  7.1s
+    epoch  11  train 0.5350  val 1.2753  val_bacc 0.527  6.4s
+    -> best epoch 1, segment ACC 0.612, subject ACC 0.645 (bal 0.620) [71s]
+  [c1_none_vs_dep] fold 1/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6671  val 0.9097  val_bacc 0.417  8.3s  *
+    epoch   2  train 0.5930  val 0.9311  val_bacc 0.424  8.1s
+    epoch   3  train 0.5870  val 0.8543  val_bacc 0.468  8.1s  *
+    epoch   4  train 0.5823  val 0.9562  val_bacc 0.426  9.3s
+    epoch   5  train 0.5761  val 0.9734  val_bacc 0.425  8.6s
+    epoch   6  train 0.5722  val 0.9518  val_bacc 0.418  9.6s
+    epoch   7  train 0.5706  val 0.9073  val_bacc 0.441  8.3s
+    epoch   8  train 0.5732  val 0.9745  val_bacc 0.423  8.1s
+    epoch   9  train 0.5685  val 1.0100  val_bacc 0.413  8.1s
+    epoch  10  train 0.5668  val 0.9206  val_bacc 0.432  8.1s
+    epoch  11  train 0.5678  val 0.9662  val_bacc 0.436  8.1s
+    epoch  12  train 0.5673  val 0.9650  val_bacc 0.427  8.2s
+    epoch  13  train 0.5651  val 0.9861  val_bacc 0.432  8.1s
+    -> best epoch 3, segment ACC 0.603, subject ACC 0.581 (bal 0.555) [111s]
+  [c1_none_vs_dep] fold 1/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6904  val 0.7620  val_bacc 0.506  7.7s  *
+    epoch   2  train 0.6322  val 0.8453  val_bacc 0.484  7.9s
+    epoch   3  train 0.5958  val 1.1353  val_bacc 0.491  8.6s
+    epoch   4  train 0.5601  val 1.3782  val_bacc 0.471  10.1s
+    epoch   5  train 0.5366  val 1.4635  val_bacc 0.439  10.1s
+    epoch   6  train 0.5220  val 1.5037  val_bacc 0.432  10.4s
+    epoch   7  train 0.5091  val 1.1262  val_bacc 0.480  9.9s
+    epoch   8  train 0.5002  val 1.3916  val_bacc 0.482  7.9s
+    epoch   9  train 0.4918  val 1.2716  val_bacc 0.490  8.1s
+    epoch  10  train 0.4849  val 1.1673  val_bacc 0.544  9.4s
+    epoch  11  train 0.4782  val 1.6493  val_bacc 0.452  7.7s
+    -> best epoch 1, segment ACC 0.638, subject ACC 0.645 (bal 0.632) [99s]
+  [c1_none_vs_dep] fold 2/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6624  val 0.6468  val_bacc 0.635  6.3s  *
+    epoch   2  train 0.6385  val 0.6864  val_bacc 0.605  6.4s
+    epoch   3  train 0.6232  val 0.6630  val_bacc 0.649  6.8s
+    epoch   4  train 0.6051  val 0.6873  val_bacc 0.650  6.2s
+    epoch   5  train 0.5894  val 0.6763  val_bacc 0.659  6.6s
+    epoch   6  train 0.5784  val 0.6836  val_bacc 0.669  6.3s
+    epoch   7  train 0.5705  val 0.7715  val_bacc 0.610  7.8s
+    epoch   8  train 0.5645  val 0.7495  val_bacc 0.620  7.6s
+    epoch   9  train 0.5565  val 0.7133  val_bacc 0.643  6.2s
+    epoch  10  train 0.5519  val 0.6847  val_bacc 0.661  6.8s
+    epoch  11  train 0.5461  val 0.7216  val_bacc 0.632  6.8s
+    -> best epoch 1, segment ACC 0.644, subject ACC 0.742 (bal 0.714) [74s]
+  [c1_none_vs_dep] fold 2/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6965  val 0.6189  val_bacc 0.690  8.2s  *
+    epoch   2  train 0.6223  val 0.7126  val_bacc 0.577  8.0s
+    epoch   3  train 0.6107  val 0.6290  val_bacc 0.659  8.1s
+    epoch   4  train 0.6029  val 0.6552  val_bacc 0.626  8.2s
+    epoch   5  train 0.6007  val 0.6398  val_bacc 0.661  10.9s
+    epoch   6  train 0.5981  val 0.5931  val_bacc 0.694  10.1s  *
+    epoch   7  train 0.5953  val 0.6847  val_bacc 0.597  8.9s
+    epoch   8  train 0.5948  val 0.6632  val_bacc 0.650  9.3s
+    epoch   9  train 0.5951  val 0.6465  val_bacc 0.656  8.9s
+    epoch  10  train 0.5950  val 0.6369  val_bacc 0.667  10.8s
+    epoch  11  train 0.5925  val 0.6393  val_bacc 0.652  10.9s
+    epoch  12  train 0.5902  val 0.6365  val_bacc 0.657  11.2s
+    epoch  13  train 0.5900  val 0.6627  val_bacc 0.649  9.3s
+    epoch  14  train 0.5904  val 0.6534  val_bacc 0.659  10.2s
+    epoch  15  train 0.5877  val 0.6285  val_bacc 0.675  9.0s
+    epoch  16  train 0.5875  val 0.6590  val_bacc 0.647  10.0s
+    -> best epoch 6, segment ACC 0.591, subject ACC 0.548 (bal 0.519) [154s]
+  [c1_none_vs_dep] fold 2/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.7033  val 0.6291  val_bacc 0.650  7.7s  *
+    epoch   2  train 0.6414  val 0.7086  val_bacc 0.560  7.6s
+    epoch   3  train 0.6170  val 0.6538  val_bacc 0.676  12.8s
+    epoch   4  train 0.5785  val 0.8813  val_bacc 0.645  12.8s
+    epoch   5  train 0.5582  val 0.7228  val_bacc 0.686  12.6s
+    epoch   6  train 0.5382  val 0.8030  val_bacc 0.672  9.8s
+    epoch   7  train 0.5351  val 0.8739  val_bacc 0.660  9.0s
+    epoch   8  train 0.5217  val 0.8930  val_bacc 0.637  11.2s
+    epoch   9  train 0.5119  val 0.9601  val_bacc 0.642  12.7s
+    epoch  10  train 0.5061  val 0.9236  val_bacc 0.646  8.9s
+    epoch  11  train 0.4967  val 0.8852  val_bacc 0.641  12.8s
+    -> best epoch 1, segment ACC 0.593, subject ACC 0.581 (bal 0.548) [118s]
+  [c1_none_vs_dep] fold 3/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6154  val 0.7293  val_bacc 0.580  3.4s  *
+    epoch   2  train 0.5692  val 0.7175  val_bacc 0.574  7.4s  *
+    epoch   3  train 0.5556  val 0.7089  val_bacc 0.608  3.5s  *
+    epoch   4  train 0.5481  val 0.7170  val_bacc 0.602  8.7s
+    epoch   5  train 0.5429  val 0.6955  val_bacc 0.616  8.2s  *
+    epoch   6  train 0.5352  val 0.7232  val_bacc 0.588  8.1s
+    epoch   7  train 0.5309  val 0.6817  val_bacc 0.621  7.6s  *
+    epoch   8  train 0.5239  val 0.7123  val_bacc 0.583  6.8s
+    epoch   9  train 0.5170  val 0.7080  val_bacc 0.612  6.1s
+    epoch  10  train 0.5195  val 0.6873  val_bacc 0.607  7.0s
+    epoch  11  train 0.5121  val 0.6901  val_bacc 0.607  8.4s
+    epoch  12  train 0.5054  val 0.7211  val_bacc 0.597  3.0s
+    epoch  13  train 0.5026  val 0.7143  val_bacc 0.603  7.5s
+    epoch  14  train 0.4974  val 0.7250  val_bacc 0.588  5.3s
+    epoch  15  train 0.4931  val 0.7161  val_bacc 0.588  6.6s
+    epoch  16  train 0.4889  val 0.7429  val_bacc 0.585  8.8s
+    epoch  17  train 0.4849  val 0.7438  val_bacc 0.606  8.2s
+    -> best epoch 7, segment ACC 0.560, subject ACC 0.548 (bal 0.538) [115s]
+  [c1_none_vs_dep] fold 3/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6804  val 0.7056  val_bacc 0.554  13.7s  *
+    epoch   2  train 0.5756  val 0.7176  val_bacc 0.543  11.6s
+    epoch   3  train 0.5644  val 0.7080  val_bacc 0.567  11.5s
+    epoch   4  train 0.5604  val 0.7052  val_bacc 0.580  12.6s  *
+    epoch   5  train 0.5564  val 0.6979  val_bacc 0.585  11.5s  *
+    epoch   6  train 0.5542  val 0.7228  val_bacc 0.598  12.1s
+    epoch   7  train 0.5517  val 0.6711  val_bacc 0.600  11.1s  *
+    epoch   8  train 0.5525  val 0.7136  val_bacc 0.584  10.3s
+    epoch   9  train 0.5481  val 0.7029  val_bacc 0.591  11.5s
+    epoch  10  train 0.5499  val 0.6914  val_bacc 0.598  11.0s
+    epoch  11  train 0.5459  val 0.6932  val_bacc 0.585  12.7s
+    epoch  12  train 0.5462  val 0.7113  val_bacc 0.578  8.3s
+    epoch  13  train 0.5451  val 0.7071  val_bacc 0.585  9.6s
+    epoch  14  train 0.5447  val 0.7037  val_bacc 0.576  9.1s
+    epoch  15  train 0.5431  val 0.6844  val_bacc 0.584  10.3s
+    epoch  16  train 0.5435  val 0.7209  val_bacc 0.626  8.2s
+    epoch  17  train 0.5420  val 0.7031  val_bacc 0.591  9.0s
+    -> best epoch 7, segment ACC 0.560, subject ACC 0.548 (bal 0.544) [186s]
+  [c1_none_vs_dep] fold 3/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6405  val 0.8901  val_bacc 0.520  7.6s  *
+    epoch   2  train 0.5849  val 0.7788  val_bacc 0.526  7.7s  *
+    epoch   3  train 0.5643  val 0.8152  val_bacc 0.535  7.9s
+    epoch   4  train 0.5415  val 0.8414  val_bacc 0.557  8.0s
+    epoch   5  train 0.5288  val 0.9111  val_bacc 0.528  10.1s
+    epoch   6  train 0.5082  val 0.9155  val_bacc 0.539  11.3s
+    epoch   7  train 0.4931  val 0.7465  val_bacc 0.568  11.9s  *
+    epoch   8  train 0.4831  val 0.8670  val_bacc 0.557  12.5s
+    epoch   9  train 0.4707  val 0.8326  val_bacc 0.579  11.1s
+    epoch  10  train 0.4683  val 0.7121  val_bacc 0.613  12.6s  *
+    epoch  11  train 0.4585  val 0.7673  val_bacc 0.595  10.6s
+    epoch  12  train 0.4457  val 0.6954  val_bacc 0.640  10.5s  *
+    epoch  13  train 0.4429  val 0.8003  val_bacc 0.600  12.2s
+    epoch  14  train 0.4363  val 0.7429  val_bacc 0.626  12.2s
+    epoch  15  train 0.4306  val 0.7150  val_bacc 0.625  12.5s
+    epoch  16  train 0.4249  val 0.6621  val_bacc 0.626  12.4s  *
+    epoch  17  train 0.4222  val 0.7824  val_bacc 0.621  13.2s
+    epoch  18  train 0.4171  val 0.7348  val_bacc 0.644  12.8s
+    epoch  19  train 0.4130  val 0.9581  val_bacc 0.597  12.3s
+    epoch  20  train 0.4089  val 0.7335  val_bacc 0.606  11.7s
+    epoch  21  train 0.4073  val 0.7808  val_bacc 0.618  11.6s
+    epoch  22  train 0.3987  val 1.0073  val_bacc 0.571  11.7s
+    epoch  23  train 0.4026  val 0.7573  val_bacc 0.623  9.5s
+    epoch  24  train 0.3993  val 0.8212  val_bacc 0.614  7.3s
+    epoch  25  train 0.3922  val 0.8129  val_bacc 0.601  7.8s
+    epoch  26  train 0.3905  val 0.8286  val_bacc 0.614  7.4s
+    -> best epoch 16, segment ACC 0.531, subject ACC 0.452 (bal 0.437) [277s]
+  [c1_none_vs_dep] fold 4/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6135  val 0.6366  val_bacc 0.614  7.1s  *
+    epoch   2  train 0.5857  val 0.6442  val_bacc 0.617  8.4s
+    epoch   3  train 0.5745  val 0.6758  val_bacc 0.602  8.7s
+    epoch   4  train 0.5662  val 0.6767  val_bacc 0.606  7.7s
+    epoch   5  train 0.5563  val 0.6865  val_bacc 0.603  9.3s
+    epoch   6  train 0.5499  val 0.6834  val_bacc 0.596  8.5s
+    epoch   7  train 0.5311  val 0.7249  val_bacc 0.594  8.6s
+    epoch   8  train 0.5113  val 0.6876  val_bacc 0.620  8.4s
+    epoch   9  train 0.5048  val 0.6842  val_bacc 0.615  8.3s
+    epoch  10  train 0.4918  val 0.7365  val_bacc 0.611  7.2s
+    epoch  11  train 0.4859  val 0.7693  val_bacc 0.597  7.5s
+    -> best epoch 1, segment ACC 0.470, subject ACC 0.484 (bal 0.491) [90s]
+  [c1_none_vs_dep] fold 4/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6781  val 0.6674  val_bacc 0.596  9.6s  *
+    epoch   2  train 0.5722  val 0.6559  val_bacc 0.616  9.7s  *
+    epoch   3  train 0.5603  val 0.6487  val_bacc 0.622  9.0s  *
+    epoch   4  train 0.5508  val 0.6669  val_bacc 0.629  10.3s
+    epoch   5  train 0.5496  val 0.6581  val_bacc 0.622  9.5s
+    epoch   6  train 0.5444  val 0.6707  val_bacc 0.623  9.4s
+    epoch   7  train 0.5453  val 0.6745  val_bacc 0.613  11.8s
+    epoch   8  train 0.5390  val 0.6375  val_bacc 0.640  10.8s  *
+    epoch   9  train 0.5376  val 0.6683  val_bacc 0.610  11.6s
+    epoch  10  train 0.5404  val 0.6721  val_bacc 0.613  14.0s
+    epoch  11  train 0.5351  val 0.6595  val_bacc 0.630  12.7s
+    epoch  12  train 0.5346  val 0.6643  val_bacc 0.626  12.2s
+    epoch  13  train 0.5357  val 0.6692  val_bacc 0.618  10.7s
+    epoch  14  train 0.5323  val 0.6902  val_bacc 0.606  12.1s
+    epoch  15  train 0.5310  val 0.6631  val_bacc 0.629  11.3s
+    epoch  16  train 0.5319  val 0.6676  val_bacc 0.626  9.5s
+    epoch  17  train 0.5320  val 0.6727  val_bacc 0.615  9.1s
+    epoch  18  train 0.5282  val 0.6587  val_bacc 0.638  9.3s
+    -> best epoch 8, segment ACC 0.448, subject ACC 0.419 (bal 0.436) [194s]
+  [c1_none_vs_dep] fold 4/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6470  val 0.6772  val_bacc 0.602  7.7s  *
+    epoch   2  train 0.5706  val 0.7504  val_bacc 0.608  8.0s
+    epoch   3  train 0.5368  val 0.9057  val_bacc 0.556  8.2s
+    epoch   4  train 0.5139  val 0.6977  val_bacc 0.595  8.2s
+    epoch   5  train 0.4968  val 1.1830  val_bacc 0.536  8.0s
+    epoch   6  train 0.4878  val 0.9526  val_bacc 0.557  8.3s
+    epoch   7  train 0.4746  val 1.1624  val_bacc 0.529  8.3s
+    epoch   8  train 0.4666  val 0.7642  val_bacc 0.618  8.3s
+    epoch   9  train 0.4554  val 0.8718  val_bacc 0.563  12.1s
+    epoch  10  train 0.4496  val 1.1636  val_bacc 0.548  12.6s
+    epoch  11  train 0.4421  val 0.9410  val_bacc 0.585  10.5s
+    -> best epoch 1, segment ACC 0.508, subject ACC 0.484 (bal 0.481) [101s]
+
+=== c2_nonemild_vs_severe: (None + Mild) vs Severe  (103 vs 21 subjects)
+  [c2_nonemild_vs_severe] fold 1/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6679  val 0.7733  val_bacc 0.442  7.0s  *
+    epoch   2  train 0.6040  val 1.0138  val_bacc 0.413  7.0s
+    epoch   3  train 0.5793  val 1.1566  val_bacc 0.387  7.2s
+    epoch   4  train 0.5652  val 1.1048  val_bacc 0.410  6.5s
+    epoch   5  train 0.5564  val 1.2308  val_bacc 0.372  6.5s
+    epoch   6  train 0.5411  val 1.3941  val_bacc 0.399  6.4s
+    epoch   7  train 0.5316  val 1.2485  val_bacc 0.406  5.5s
+    epoch   8  train 0.5212  val 1.2589  val_bacc 0.386  6.7s
+    epoch   9  train 0.5127  val 1.2413  val_bacc 0.417  7.2s
+    epoch  10  train 0.5083  val 1.3040  val_bacc 0.382  7.2s
+    epoch  11  train 0.4907  val 1.3767  val_bacc 0.382  7.3s
+    -> best epoch 1, segment ACC 0.625, subject ACC 0.677 (bal 0.483) [74s]
+  [c2_nonemild_vs_severe] fold 1/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6857  val 0.8675  val_bacc 0.457  11.0s  *
+    epoch   2  train 0.5861  val 0.9162  val_bacc 0.478  9.6s
+    epoch   3  train 0.5769  val 0.9495  val_bacc 0.440  9.9s
+    epoch   4  train 0.5702  val 0.9527  val_bacc 0.480  11.7s
+    epoch   5  train 0.5618  val 0.9482  val_bacc 0.470  11.8s
+    epoch   6  train 0.5577  val 1.0648  val_bacc 0.445  10.7s
+    epoch   7  train 0.5549  val 0.9586  val_bacc 0.468  11.6s
+    epoch   8  train 0.5517  val 0.9598  val_bacc 0.459  8.2s
+    epoch   9  train 0.5457  val 0.9685  val_bacc 0.461  8.0s
+    epoch  10  train 0.5445  val 1.0334  val_bacc 0.427  8.0s
+    epoch  11  train 0.5438  val 1.0619  val_bacc 0.448  8.0s
+    -> best epoch 1, segment ACC 0.602, subject ACC 0.645 (bal 0.653) [110s]
+  [c2_nonemild_vs_severe] fold 1/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.7158  val 0.8923  val_bacc 0.375  7.7s  *
+    epoch   2  train 0.6059  val 1.0033  val_bacc 0.315  13.0s
+    epoch   3  train 0.5620  val 0.9903  val_bacc 0.422  10.3s
+    epoch   4  train 0.5433  val 1.4194  val_bacc 0.396  8.1s
+    epoch   5  train 0.5313  val 1.3153  val_bacc 0.463  7.7s
+    epoch   6  train 0.5308  val 1.2672  val_bacc 0.401  8.4s
+    epoch   7  train 0.5075  val 1.3263  val_bacc 0.439  8.3s
+    epoch   8  train 0.4983  val 1.5309  val_bacc 0.413  8.2s
+    epoch   9  train 0.4882  val 1.1278  val_bacc 0.468  8.1s
+    epoch  10  train 0.4853  val 1.2691  val_bacc 0.428  8.0s
+    epoch  11  train 0.4753  val 1.3755  val_bacc 0.439  7.9s
+    -> best epoch 1, segment ACC 0.500, subject ACC 0.452 (bal 0.470) [96s]
+  [c2_nonemild_vs_severe] fold 2/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.5753  val 1.6308  val_bacc 0.420  7.2s  *
+    epoch   2  train 0.5318  val 1.7478  val_bacc 0.398  5.4s
+    epoch   3  train 0.5270  val 1.8635  val_bacc 0.403  7.0s
+    epoch   4  train 0.5187  val 1.8497  val_bacc 0.376  7.2s
+    epoch   5  train 0.5186  val 2.0662  val_bacc 0.334  6.9s
+    epoch   6  train 0.5168  val 1.8173  val_bacc 0.404  6.4s
+    epoch   7  train 0.5106  val 1.6650  val_bacc 0.382  7.3s
+    epoch   8  train 0.5060  val 1.9043  val_bacc 0.350  7.9s
+    epoch   9  train 0.5046  val 1.7111  val_bacc 0.393  7.7s
+    epoch  10  train 0.5017  val 1.6712  val_bacc 0.410  5.0s
+    epoch  11  train 0.4984  val 1.9292  val_bacc 0.393  6.8s
+    -> best epoch 1, segment ACC 0.581, subject ACC 0.645 (bal 0.465) [75s]
+  [c2_nonemild_vs_severe] fold 2/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6230  val 1.1857  val_bacc 0.378  11.4s  *
+    epoch   2  train 0.5317  val 1.2794  val_bacc 0.371  11.9s
+    epoch   3  train 0.5178  val 1.4352  val_bacc 0.400  10.8s
+    epoch   4  train 0.5166  val 1.3926  val_bacc 0.375  11.0s
+    epoch   5  train 0.5041  val 1.5198  val_bacc 0.382  10.7s
+    epoch   6  train 0.5046  val 1.4759  val_bacc 0.377  10.8s
+    epoch   7  train 0.4961  val 1.6097  val_bacc 0.397  8.5s
+    epoch   8  train 0.4975  val 1.5941  val_bacc 0.369  10.9s
+    epoch   9  train 0.4967  val 1.3868  val_bacc 0.374  11.0s
+    epoch  10  train 0.4906  val 1.4473  val_bacc 0.356  11.0s
+    epoch  11  train 0.4893  val 1.5883  val_bacc 0.410  11.5s
+    -> best epoch 1, segment ACC 0.537, subject ACC 0.484 (bal 0.369) [121s]
+  [c2_nonemild_vs_severe] fold 2/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6299  val 1.4647  val_bacc 0.492  12.1s  *
+    epoch   2  train 0.5543  val 1.9040  val_bacc 0.315  12.6s
+    epoch   3  train 0.5279  val 1.3958  val_bacc 0.427  12.9s  *
+    epoch   4  train 0.4928  val 2.6115  val_bacc 0.351  12.5s
+    epoch   5  train 0.4895  val 2.6629  val_bacc 0.363  12.2s
+    epoch   6  train 0.4647  val 2.0595  val_bacc 0.431  12.7s
+    epoch   7  train 0.4499  val 2.4140  val_bacc 0.424  12.7s
+    epoch   8  train 0.4434  val 2.9113  val_bacc 0.415  12.1s
+    epoch   9  train 0.4464  val 1.8221  val_bacc 0.442  12.5s
+    epoch  10  train 0.4323  val 1.9344  val_bacc 0.420  12.7s
+    epoch  11  train 0.4279  val 2.3746  val_bacc 0.362  12.4s
+    epoch  12  train 0.4236  val 3.3979  val_bacc 0.403  12.5s
+    epoch  13  train 0.4227  val 1.9689  val_bacc 0.457  12.7s
+    -> best epoch 3, segment ACC 0.706, subject ACC 0.774 (bal 0.462) [163s]
+  [c2_nonemild_vs_severe] fold 3/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6417  val 0.8180  val_bacc 0.485  7.4s  *
+    epoch   2  train 0.6025  val 0.8162  val_bacc 0.472  8.1s  *
+    epoch   3  train 0.5723  val 0.8964  val_bacc 0.453  6.8s
+    epoch   4  train 0.5451  val 1.1005  val_bacc 0.442  8.3s
+    epoch   5  train 0.5300  val 1.1364  val_bacc 0.462  7.9s
+    epoch   6  train 0.5186  val 1.1420  val_bacc 0.454  3.0s
+    epoch   7  train 0.5031  val 1.3111  val_bacc 0.462  8.9s
+    epoch   8  train 0.4964  val 1.2404  val_bacc 0.468  6.7s
+    epoch   9  train 0.4855  val 1.2597  val_bacc 0.462  6.6s
+    epoch  10  train 0.4771  val 1.4075  val_bacc 0.470  8.0s
+    epoch  11  train 0.4722  val 1.2831  val_bacc 0.462  8.6s
+    epoch  12  train 0.4696  val 1.3854  val_bacc 0.466  8.7s
+    -> best epoch 2, segment ACC 0.623, subject ACC 0.645 (bal 0.465) [89s]
+  [c2_nonemild_vs_severe] fold 3/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6797  val 1.0942  val_bacc 0.481  12.1s  *
+    epoch   2  train 0.5717  val 1.1155  val_bacc 0.445  11.1s
+    epoch   3  train 0.5545  val 1.0742  val_bacc 0.463  9.9s  *
+    epoch   4  train 0.5462  val 1.2020  val_bacc 0.461  11.8s
+    epoch   5  train 0.5385  val 1.2453  val_bacc 0.466  8.4s
+    epoch   6  train 0.5342  val 1.3302  val_bacc 0.475  8.0s
+    epoch   7  train 0.5328  val 1.3040  val_bacc 0.457  8.0s
+    epoch   8  train 0.5319  val 1.4134  val_bacc 0.479  8.0s
+    epoch   9  train 0.5268  val 1.3672  val_bacc 0.463  10.8s
+    epoch  10  train 0.5259  val 1.3296  val_bacc 0.478  11.1s
+    epoch  11  train 0.5221  val 1.3632  val_bacc 0.483  11.1s
+    epoch  12  train 0.5203  val 1.2867  val_bacc 0.462  11.3s
+    epoch  13  train 0.5209  val 1.3817  val_bacc 0.450  8.7s
+    -> best epoch 3, segment ACC 0.593, subject ACC 0.645 (bal 0.465) [132s]
+  [c2_nonemild_vs_severe] fold 3/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6869  val 0.8910  val_bacc 0.440  7.8s  *
+    epoch   2  train 0.5898  val 1.0132  val_bacc 0.420  8.0s
+    epoch   3  train 0.5467  val 1.6228  val_bacc 0.440  8.0s
+    epoch   4  train 0.5203  val 1.5934  val_bacc 0.472  8.0s
+    epoch   5  train 0.5080  val 1.6075  val_bacc 0.506  8.1s
+    epoch   6  train 0.5012  val 1.8471  val_bacc 0.483  8.0s
+    epoch   7  train 0.4851  val 2.2579  val_bacc 0.496  8.8s
+    epoch   8  train 0.4714  val 1.9064  val_bacc 0.471  10.4s
+    epoch   9  train 0.4607  val 2.2709  val_bacc 0.513  8.3s
+    epoch  10  train 0.4555  val 2.5580  val_bacc 0.464  8.2s
+    epoch  11  train 0.4563  val 2.6876  val_bacc 0.520  8.3s
+    -> best epoch 1, segment ACC 0.540, subject ACC 0.548 (bal 0.408) [92s]
+  [c2_nonemild_vs_severe] fold 4/4 EEGNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6530  val 0.6015  val_bacc 0.685  6.7s  *
+    epoch   2  train 0.6111  val 0.5947  val_bacc 0.665  6.9s  *
+    epoch   3  train 0.5950  val 0.5809  val_bacc 0.656  7.0s  *
+    epoch   4  train 0.5856  val 0.5659  val_bacc 0.672  6.7s  *
+    epoch   5  train 0.5746  val 0.5808  val_bacc 0.651  7.0s
+    epoch   6  train 0.5662  val 0.5281  val_bacc 0.698  6.6s  *
+    epoch   7  train 0.5625  val 0.5608  val_bacc 0.654  6.8s
+    epoch   8  train 0.5547  val 0.5524  val_bacc 0.645  6.7s
+    epoch   9  train 0.5500  val 0.5818  val_bacc 0.635  6.2s
+    epoch  10  train 0.5410  val 0.6029  val_bacc 0.649  6.2s
+    epoch  11  train 0.5394  val 0.5746  val_bacc 0.661  6.3s
+    epoch  12  train 0.5340  val 0.6251  val_bacc 0.622  6.2s
+    epoch  13  train 0.5299  val 0.6228  val_bacc 0.628  6.2s
+    epoch  14  train 0.5255  val 0.5975  val_bacc 0.626  6.2s
+    epoch  15  train 0.5200  val 0.6241  val_bacc 0.627  6.3s
+    epoch  16  train 0.5193  val 0.6287  val_bacc 0.622  6.0s
+    -> best epoch 6, segment ACC 0.423, subject ACC 0.452 (bal 0.350) [104s]
+  [c2_nonemild_vs_severe] fold 4/4 ShallowFBCSPNet: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6850  val 0.6168  val_bacc 0.645  8.1s  *
+    epoch   2  train 0.5913  val 0.5574  val_bacc 0.714  8.1s  *
+    epoch   3  train 0.5820  val 0.5818  val_bacc 0.681  8.1s
+    epoch   4  train 0.5757  val 0.6013  val_bacc 0.649  8.0s
+    epoch   5  train 0.5695  val 0.6007  val_bacc 0.652  8.1s
+    epoch   6  train 0.5631  val 0.5584  val_bacc 0.691  8.1s
+    epoch   7  train 0.5648  val 0.5898  val_bacc 0.651  8.2s
+    epoch   8  train 0.5584  val 0.5986  val_bacc 0.656  8.1s
+    epoch   9  train 0.5550  val 0.6449  val_bacc 0.598  8.1s
+    epoch  10  train 0.5509  val 0.6510  val_bacc 0.624  8.2s
+    epoch  11  train 0.5531  val 0.6191  val_bacc 0.650  8.4s
+    epoch  12  train 0.5529  val 0.6764  val_bacc 0.585  8.3s
+    -> best epoch 2, segment ACC 0.448, subject ACC 0.452 (bal 0.350) [99s]
+  [c2_nonemild_vs_severe] fold 4/4 Deep4Net: train 74 / val 19 / test 31 subjects
+    epoch   1  train 0.6899  val 0.9184  val_bacc 0.494  7.9s  *
+    epoch   2  train 0.6168  val 0.6536  val_bacc 0.650  8.2s  *
+    epoch   3  train 0.5818  val 0.8480  val_bacc 0.475  9.0s
+    epoch   4  train 0.5481  val 0.8809  val_bacc 0.513  12.9s
+    epoch   5  train 0.5338  val 0.6327  val_bacc 0.607  13.0s  *
+    epoch   6  train 0.5127  val 0.6155  val_bacc 0.681  12.9s  *
+    epoch   7  train 0.5152  val 0.7799  val_bacc 0.566  13.0s
+    epoch   8  train 0.4957  val 0.6946  val_bacc 0.563  13.0s
+    epoch   9  train 0.4829  val 0.9754  val_bacc 0.561  12.9s
+    epoch  10  train 0.4693  val 0.9765  val_bacc 0.517  12.9s
+    epoch  11  train 0.4702  val 0.7416  val_bacc 0.597  12.8s
+    epoch  12  train 0.4589  val 1.3238  val_bacc 0.511  13.0s
+    epoch  13  train 0.4571  val 1.0669  val_bacc 0.516  13.0s
+    epoch  14  train 0.4453  val 0.8719  val_bacc 0.516  8.0s
+    epoch  15  train 0.4401  val 0.9179  val_bacc 0.535  7.9s
+    epoch  16  train 0.4387  val 0.9922  val_bacc 0.540  8.1s
+    -> best epoch 6, segment ACC 0.392, subject ACC 0.355 (bal 0.535) [179s]
+
+=== c3_mild_vs_severe: Mild vs Severe  (34 vs 21 subjects)
+  [c3_mild_vs_severe] fold 1/4 EEGNet: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6157  val 0.7700  val_bacc 0.462  1.6s  *
+    epoch   2  train 0.5327  val 0.9844  val_bacc 0.449  2.6s
+    epoch   3  train 0.5055  val 1.0301  val_bacc 0.426  1.8s
+    epoch   4  train 0.4921  val 1.0683  val_bacc 0.431  2.8s
+    epoch   5  train 0.4789  val 1.0988  val_bacc 0.414  3.2s
+    epoch   6  train 0.4672  val 1.0758  val_bacc 0.434  3.4s
+    epoch   7  train 0.4529  val 1.1678  val_bacc 0.405  3.9s
+    epoch   8  train 0.4369  val 1.1596  val_bacc 0.394  3.3s
+    epoch   9  train 0.4291  val 1.2065  val_bacc 0.394  3.5s
+    epoch  10  train 0.4197  val 1.2138  val_bacc 0.398  3.6s
+    epoch  11  train 0.4138  val 1.2165  val_bacc 0.405  3.1s
+    -> best epoch 1, segment ACC 0.604, subject ACC 0.571 (bal 0.542) [33s]
+  [c3_mild_vs_severe] fold 1/4 ShallowFBCSPNet: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6321  val 0.9828  val_bacc 0.428  5.0s  *
+    epoch   2  train 0.5229  val 0.9859  val_bacc 0.440  3.8s
+    epoch   3  train 0.4996  val 0.9861  val_bacc 0.439  3.8s
+    epoch   4  train 0.4863  val 1.0152  val_bacc 0.439  4.0s
+    epoch   5  train 0.4824  val 1.0366  val_bacc 0.427  4.1s
+    epoch   6  train 0.4812  val 1.0257  val_bacc 0.432  3.7s
+    epoch   7  train 0.4729  val 1.0346  val_bacc 0.447  4.0s
+    epoch   8  train 0.4716  val 1.0286  val_bacc 0.434  4.0s
+    epoch   9  train 0.4675  val 1.0543  val_bacc 0.443  3.8s
+    epoch  10  train 0.4701  val 1.0456  val_bacc 0.433  3.9s
+    epoch  11  train 0.4684  val 1.0496  val_bacc 0.413  4.0s
+    -> best epoch 1, segment ACC 0.580, subject ACC 0.714 (bal 0.688) [45s]
+  [c3_mild_vs_severe] fold 1/4 Deep4Net: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6581  val 0.8645  val_bacc 0.441  5.2s  *
+    epoch   2  train 0.5512  val 1.0222  val_bacc 0.335  5.5s
+    epoch   3  train 0.4929  val 0.9507  val_bacc 0.426  5.4s
+    epoch   4  train 0.4485  val 1.0021  val_bacc 0.453  5.6s
+    epoch   5  train 0.4253  val 1.0201  val_bacc 0.448  5.3s
+    epoch   6  train 0.4103  val 1.0029  val_bacc 0.459  5.1s
+    epoch   7  train 0.3913  val 1.0160  val_bacc 0.461  5.2s
+    epoch   8  train 0.3864  val 1.0272  val_bacc 0.467  5.0s
+    epoch   9  train 0.3800  val 1.0169  val_bacc 0.434  5.2s
+    epoch  10  train 0.3699  val 1.0162  val_bacc 0.460  5.1s
+    epoch  11  train 0.3673  val 1.0299  val_bacc 0.490  5.5s
+    -> best epoch 1, segment ACC 0.605, subject ACC 0.643 (bal 0.688) [58s]
+  [c3_mild_vs_severe] fold 2/4 EEGNet: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6220  val 0.7709  val_bacc 0.405  2.8s  *
+    epoch   2  train 0.5172  val 1.3339  val_bacc 0.327  2.9s
+    epoch   3  train 0.4781  val 1.4071  val_bacc 0.380  2.5s
+    epoch   4  train 0.4567  val 1.4915  val_bacc 0.377  2.9s
+    epoch   5  train 0.4357  val 1.7025  val_bacc 0.334  3.8s
+    epoch   6  train 0.4201  val 1.7728  val_bacc 0.343  1.3s
+    epoch   7  train 0.4067  val 1.8478  val_bacc 0.336  3.5s
+    epoch   8  train 0.4007  val 1.8004  val_bacc 0.359  3.8s
+    epoch   9  train 0.3909  val 1.8991  val_bacc 0.392  1.3s
+    epoch  10  train 0.3851  val 1.8914  val_bacc 0.384  2.6s
+    epoch  11  train 0.3856  val 1.8624  val_bacc 0.347  1.4s
+    -> best epoch 1, segment ACC 0.498, subject ACC 0.500 (bal 0.522) [29s]
+  [c3_mild_vs_severe] fold 2/4 ShallowFBCSPNet: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6347  val 1.1935  val_bacc 0.332  4.8s  *
+    epoch   2  train 0.5214  val 1.1784  val_bacc 0.338  3.7s  *
+    epoch   3  train 0.4875  val 1.2013  val_bacc 0.329  3.9s
+    epoch   4  train 0.4833  val 1.1949  val_bacc 0.321  3.6s
+    epoch   5  train 0.4749  val 1.2396  val_bacc 0.326  3.9s
+    epoch   6  train 0.4640  val 1.1888  val_bacc 0.344  4.1s
+    epoch   7  train 0.4588  val 1.2805  val_bacc 0.331  4.0s
+    epoch   8  train 0.4663  val 1.2406  val_bacc 0.327  3.9s
+    epoch   9  train 0.4567  val 1.1843  val_bacc 0.364  4.1s
+    epoch  10  train 0.4526  val 1.1904  val_bacc 0.347  4.0s
+    epoch  11  train 0.4495  val 1.3516  val_bacc 0.337  4.1s
+    epoch  12  train 0.4546  val 1.2225  val_bacc 0.353  3.7s
+    -> best epoch 2, segment ACC 0.555, subject ACC 0.571 (bal 0.533) [48s]
+  [c3_mild_vs_severe] fold 2/4 Deep4Net: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6838  val 1.3353  val_bacc 0.331  5.1s  *
+    epoch   2  train 0.5363  val 1.5674  val_bacc 0.339  5.6s
+    epoch   3  train 0.4876  val 1.8133  val_bacc 0.345  5.5s
+    epoch   4  train 0.4588  val 1.9861  val_bacc 0.337  5.2s
+    epoch   5  train 0.4436  val 1.7482  val_bacc 0.348  5.2s
+    epoch   6  train 0.4313  val 1.9638  val_bacc 0.374  5.6s
+    epoch   7  train 0.4196  val 2.2663  val_bacc 0.346  5.2s
+    epoch   8  train 0.4143  val 2.1337  val_bacc 0.367  5.5s
+    epoch   9  train 0.4105  val 2.0959  val_bacc 0.370  5.5s
+    epoch  10  train 0.4043  val 2.0466  val_bacc 0.365  5.5s
+    epoch  11  train 0.3914  val 2.0620  val_bacc 0.370  5.4s
+    -> best epoch 1, segment ACC 0.559, subject ACC 0.500 (bal 0.478) [60s]
+  [c3_mild_vs_severe] fold 3/4 EEGNet: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6183  val 0.7585  val_bacc 0.398  1.3s  *
+    epoch   2  train 0.5657  val 0.8684  val_bacc 0.391  3.2s
+    epoch   3  train 0.5474  val 0.9007  val_bacc 0.389  4.1s
+    epoch   4  train 0.5248  val 1.1217  val_bacc 0.384  3.8s
+    epoch   5  train 0.5033  val 1.1204  val_bacc 0.392  3.0s
+    epoch   6  train 0.4979  val 1.1270  val_bacc 0.395  3.6s
+    epoch   7  train 0.4894  val 1.1275  val_bacc 0.404  1.3s
+    epoch   8  train 0.4841  val 1.2478  val_bacc 0.406  3.1s
+    epoch   9  train 0.4770  val 1.2695  val_bacc 0.408  1.3s
+    epoch  10  train 0.4575  val 1.2067  val_bacc 0.423  3.1s
+    epoch  11  train 0.4451  val 1.1333  val_bacc 0.432  1.9s
+    -> best epoch 1, segment ACC 0.602, subject ACC 0.643 (bal 0.722) [30s]
+  [c3_mild_vs_severe] fold 3/4 ShallowFBCSPNet: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6492  val 0.9066  val_bacc 0.407  4.6s  *
+    epoch   2  train 0.5322  val 0.8861  val_bacc 0.412  3.9s  *
+    epoch   3  train 0.5033  val 0.9547  val_bacc 0.400  3.7s
+    epoch   4  train 0.4909  val 1.0411  val_bacc 0.450  3.6s
+    epoch   5  train 0.4786  val 0.9975  val_bacc 0.415  3.6s
+    epoch   6  train 0.4731  val 0.9877  val_bacc 0.417  3.7s
+    epoch   7  train 0.4682  val 0.9967  val_bacc 0.399  3.7s
+    epoch   8  train 0.4629  val 1.0164  val_bacc 0.447  4.0s
+    epoch   9  train 0.4610  val 1.0465  val_bacc 0.443  3.9s
+    epoch  10  train 0.4554  val 1.0201  val_bacc 0.440  3.7s
+    epoch  11  train 0.4522  val 1.0347  val_bacc 0.421  4.0s
+    epoch  12  train 0.4502  val 0.9978  val_bacc 0.443  4.4s
+    -> best epoch 2, segment ACC 0.526, subject ACC 0.571 (bal 0.667) [48s]
+  [c3_mild_vs_severe] fold 3/4 Deep4Net: train 32 / val 9 / test 14 subjects
+    epoch   1  train 0.6830  val 0.8218  val_bacc 0.491  4.9s  *
+    epoch   2  train 0.5385  val 1.0291  val_bacc 0.449  5.2s
+    epoch   3  train 0.4873  val 1.2268  val_bacc 0.456  5.3s
+    epoch   4  train 0.4605  val 0.9542  val_bacc 0.519  5.1s
+    epoch   5  train 0.4373  val 1.0744  val_bacc 0.499  5.2s
+    epoch   6  train 0.4176  val 0.9388  val_bacc 0.497  5.4s
+    epoch   7  train 0.4054  val 0.8705  val_bacc 0.518  5.3s
+    epoch   8  train 0.3860  val 0.9616  val_bacc 0.525  5.3s
+    epoch   9  train 0.3793  val 0.9653  val_bacc 0.546  4.9s
+    epoch  10  train 0.3614  val 1.0105  val_bacc 0.531  5.3s
+    epoch  11  train 0.3572  val 1.0136  val_bacc 0.532  5.3s
+    -> best epoch 1, segment ACC 0.392, subject ACC 0.429 (bal 0.556) [57s]
+  [c3_mild_vs_severe] fold 4/4 EEGNet: train 33 / val 9 / test 13 subjects
+    epoch   1  train 0.6199  val 0.7107  val_bacc 0.556  1.5s  *
+    epoch   2  train 0.5413  val 0.9049  val_bacc 0.609  3.3s
+    epoch   3  train 0.5257  val 0.9597  val_bacc 0.604  3.6s
+    epoch   4  train 0.5087  val 1.1039  val_bacc 0.588  3.8s
+    epoch   5  train 0.5009  val 1.0993  val_bacc 0.591  2.4s
+    epoch   6  train 0.5001  val 1.1049  val_bacc 0.571  3.4s
+    epoch   7  train 0.4909  val 1.1486  val_bacc 0.575  4.0s
+    epoch   8  train 0.4854  val 1.2575  val_bacc 0.583  1.5s
+    epoch   9  train 0.4834  val 1.2116  val_bacc 0.549  1.4s
+    epoch  10  train 0.4786  val 1.1960  val_bacc 0.582  3.4s
+    epoch  11  train 0.4721  val 1.1128  val_bacc 0.588  3.7s
+    -> best epoch 1, segment ACC 0.553, subject ACC 0.538 (bal 0.550) [32s]
+  [c3_mild_vs_severe] fold 4/4 ShallowFBCSPNet: train 33 / val 9 / test 13 subjects
+    epoch   1  train 0.6582  val 0.7415  val_bacc 0.634  6.0s  *
+    epoch   2  train 0.5519  val 0.8198  val_bacc 0.598  4.1s
+    epoch   3  train 0.5242  val 0.8195  val_bacc 0.615  3.9s
+    epoch   4  train 0.5071  val 0.8330  val_bacc 0.625  4.3s
+    epoch   5  train 0.5094  val 0.9303  val_bacc 0.540  4.4s
+    epoch   6  train 0.4931  val 0.8676  val_bacc 0.595  3.8s
+    epoch   7  train 0.4863  val 0.8746  val_bacc 0.612  4.1s
+    epoch   8  train 0.4937  val 0.9179  val_bacc 0.553  4.2s
+    epoch   9  train 0.4856  val 0.8681  val_bacc 0.624  3.8s
+    epoch  10  train 0.4825  val 0.9330  val_bacc 0.571  4.1s
+    epoch  11  train 0.4800  val 0.8673  val_bacc 0.648  3.9s
+    -> best epoch 1, segment ACC 0.559, subject ACC 0.538 (bal 0.475) [48s]
+  [c3_mild_vs_severe] fold 4/4 Deep4Net: train 33 / val 9 / test 13 subjects
+    epoch   1  train 0.6712  val 0.6514  val_bacc 0.583  5.3s  *
+    epoch   2  train 0.5706  val 0.9198  val_bacc 0.473  5.3s
+    epoch   3  train 0.5309  val 1.0451  val_bacc 0.318  4.7s
+    epoch   4  train 0.4872  val 1.2391  val_bacc 0.264  5.1s
+    epoch   5  train 0.4651  val 1.3642  val_bacc 0.358  5.4s
+    epoch   6  train 0.4410  val 1.5788  val_bacc 0.360  5.9s
+    epoch   7  train 0.4235  val 1.5370  val_bacc 0.324  5.9s
+    epoch   8  train 0.4117  val 1.6151  val_bacc 0.310  5.8s
+    epoch   9  train 0.3977  val 1.8487  val_bacc 0.311  5.4s
+    epoch  10  train 0.3893  val 2.0494  val_bacc 0.369  5.5s
+    epoch  11  train 0.3727  val 2.1056  val_bacc 0.353  5.7s
+    -> best epoch 1, segment ACC 0.497, subject ACC 0.462 (bal 0.450) [60s]
+
+# Results: subject-wise 4-fold CV
+
+Segments: 1-s windows, 75% overlap, 1197 per subject. Mean ± std over folds. Positive class = more severe group. Subject-level prediction = mean of the subject's 1197 segment probabilities.
+
+## Subject-level
+
+| Task | Model | ACC | Bal. ACC | F1 | Precision | Recall | Specificity | AUC |
+|---|---|---|---|---|---|---|---|---|
+| None vs (Mild + Severe) | EEGNet | 0.605 ± 0.113 | 0.591 ± 0.098 | 0.501 ± 0.066 | 0.657 ± 0.262 | 0.438 ± 0.075 | 0.743 ± 0.248 | 0.569 ± 0.128 |
+| None vs (Mild + Severe) | ShallowFBCSPNet | 0.524 ± 0.072 | 0.513 ± 0.054 | 0.405 ± 0.085 | 0.485 ± 0.085 | 0.385 ± 0.159 | 0.642 ± 0.234 | 0.567 ± 0.113 |
+| None vs (Mild + Severe) | Deep4Net | 0.540 ± 0.089 | 0.525 ± 0.085 | 0.406 ± 0.115 | 0.500 ± 0.138 | 0.365 ± 0.137 | 0.684 ± 0.172 | 0.564 ± 0.116 |
+| (None + Mild) vs Severe | EEGNet | 0.605 ± 0.103 | 0.441 ± 0.061 | 0.145 ± 0.027 | 0.122 ± 0.039 | 0.192 ± 0.017 | 0.690 ± 0.131 | 0.409 ± 0.133 |
+| (None + Mild) vs Severe | ShallowFBCSPNet | 0.556 ± 0.103 | 0.459 ± 0.139 | 0.198 ± 0.150 | 0.145 ± 0.111 | 0.317 ± 0.233 | 0.602 ± 0.104 | 0.387 ± 0.169 |
+| (None + Mild) vs Severe | Deep4Net | 0.532 ± 0.180 | 0.468 ± 0.052 | 0.168 ± 0.132 | 0.110 ± 0.084 | 0.375 ± 0.350 | 0.562 ± 0.279 | 0.409 ± 0.171 |
+| Mild vs Severe | EEGNet | 0.563 ± 0.061 | 0.584 ± 0.093 | 0.507 ± 0.114 | 0.451 ± 0.061 | 0.633 ± 0.275 | 0.535 ± 0.146 | 0.638 ± 0.175 |
+| Mild vs Severe | ShallowFBCSPNet | 0.599 ± 0.078 | 0.591 ± 0.103 | 0.469 ± 0.177 | 0.484 ± 0.184 | 0.525 ± 0.340 | 0.656 ± 0.232 | 0.555 ± 0.087 |
+| Mild vs Severe | Deep4Net | 0.508 ± 0.094 | 0.543 ± 0.106 | 0.497 ± 0.166 | 0.399 ± 0.100 | 0.700 ± 0.346 | 0.385 ± 0.198 | 0.550 ± 0.149 |
+
+## Segment-level
+
+| Task | Model | ACC | Bal. ACC | F1 | Precision | Recall | Specificity | AUC |
+|---|---|---|---|---|---|---|---|---|
+| None vs (Mild + Severe) | EEGNet | 0.571 ± 0.076 | 0.561 ± 0.068 | 0.486 ± 0.044 | 0.539 ± 0.112 | 0.453 ± 0.022 | 0.669 ± 0.150 | 0.535 ± 0.090 |
+| None vs (Mild + Severe) | ShallowFBCSPNet | 0.550 ± 0.070 | 0.542 ± 0.059 | 0.472 ± 0.028 | 0.512 ± 0.093 | 0.453 ± 0.054 | 0.632 ± 0.165 | 0.539 ± 0.075 |
+| None vs (Mild + Severe) | Deep4Net | 0.567 ± 0.059 | 0.552 ± 0.059 | 0.452 ± 0.088 | 0.528 ± 0.099 | 0.411 ± 0.112 | 0.694 ± 0.123 | 0.552 ± 0.092 |
+| (None + Mild) vs Severe | EEGNet | 0.563 ± 0.096 | 0.451 ± 0.053 | 0.182 ± 0.051 | 0.137 ± 0.049 | 0.282 ± 0.067 | 0.621 ± 0.124 | 0.430 ± 0.097 |
+| (None + Mild) vs Severe | ShallowFBCSPNet | 0.545 ± 0.071 | 0.461 ± 0.086 | 0.200 ± 0.104 | 0.144 ± 0.077 | 0.336 ± 0.162 | 0.586 ± 0.083 | 0.425 ± 0.134 |
+| (None + Mild) vs Severe | Deep4Net | 0.535 ± 0.130 | 0.464 ± 0.072 | 0.174 ± 0.142 | 0.117 ± 0.091 | 0.362 ± 0.326 | 0.566 ± 0.213 | 0.425 ± 0.137 |
+| Mild vs Severe | EEGNet | 0.564 ± 0.050 | 0.582 ± 0.064 | 0.514 ± 0.072 | 0.457 ± 0.073 | 0.626 ± 0.202 | 0.538 ± 0.141 | 0.618 ± 0.115 |
+| Mild vs Severe | ShallowFBCSPNet | 0.555 ± 0.022 | 0.545 ± 0.031 | 0.448 ± 0.088 | 0.427 ± 0.055 | 0.495 ± 0.177 | 0.596 ± 0.128 | 0.564 ± 0.047 |
+| Mild vs Severe | Deep4Net | 0.513 ± 0.092 | 0.550 ± 0.058 | 0.513 ± 0.104 | 0.419 ± 0.071 | 0.705 ± 0.262 | 0.395 ± 0.243 | 0.507 ± 0.099 |
+
+## Majority-class baseline (subject-level ACC)
+
+| Task | Subjects (neg / pos) | Majority ACC |
+|---|---|---|
+| None vs (Mild + Severe) | 69 / 55 | 0.556 |
+| (None + Mild) vs Severe | 103 / 21 | 0.831 |
+| Mild vs Severe | 34 / 21 | 0.618 |
+
+## Model complexity (input 2 × 128)
+
+| Model | Params | Size (KB, fp32) | FLOPs / segment |
+|---|---|---|---|
+| EEGNet | 1,266 | 5.3 | 0.306 M |
+| ShallowFBCSPNet | 4,482 | 17.8 | 0.420 M |
+| Deep4Net | 135,002 | 530.3 | 3.641 M |

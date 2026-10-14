@@ -3,7 +3,7 @@ three depression-severity tasks.
 
     python run_cv.py --labels "../20260616_Demographic_grouped (1).csv"
 
-Folds are split by subject (stratified on the task label), so all 300 segments of a
+Folds are split by subject (stratified on the task label), so all segments of a
 subject are in exactly one of train / validation / test. Within each training fold,
 `--val-frac` of the training subjects are held out for early stopping. Every model
 sees the same folds. Metrics are reported per 1-s segment and per subject (mean
@@ -18,7 +18,8 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold, train_test_split
 
-from deplevel.data import TASKS, attach_labels, load_cache, load_labels, segment, task_subset
+from deplevel.data import (TASKS, attach_labels, flat, load_cache, load_labels, segment, standardize,
+                           task_subset)
 from deplevel.models import MODEL_NAMES, build_model, complexity
 from deplevel.train import binary_metrics, fit, pick_device, predict_proba, set_seed
 
@@ -32,6 +33,8 @@ def parse_args():
     p.add_argument("--tasks", nargs="+", default=list(TASKS), choices=list(TASKS))
     p.add_argument("--models", nargs="+", default=list(MODEL_NAMES), choices=list(MODEL_NAMES))
     p.add_argument("--folds", type=int, default=4)
+    p.add_argument("--overlap", type=float, default=0.0,
+                   help="overlap between neighbouring 1-s windows (0 = none, 0.75 = 0.25-s step)")
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--val-frac", type=float, default=0.2)
     p.add_argument("--epochs", type=int, default=50)
@@ -45,27 +48,16 @@ def parse_args():
     return p.parse_args()
 
 
-def standardize(train, *others):
-    """Channel-wise z-score with statistics from the training subjects only."""
-    mean = train.mean(axis=(0, 1, 3), keepdims=True)
-    std = train.std(axis=(0, 1, 3), keepdims=True)
-    return [(a - mean) / std for a in (train, *others)]
-
-
-def flat(x, y):
-    """(n_sub, n_seg, ch, t), (n_sub,) -> (n_sub*n_seg, ch, t), (n_sub*n_seg,)."""
-    return x.reshape(-1, *x.shape[2:]), np.repeat(y, x.shape[1])
-
-
-def summarize(fold_df, cx_df, baseline, out):
+def summarize(fold_df, cx_df, baseline, out, n_seg, overlap):
     agg = fold_df.groupby(["task", "model", "level"], sort=False)[list(METRICS)].agg(["mean", "std"])
     agg.columns = [f"{m}_{s}" for m, s in agg.columns]
     agg = agg.reset_index()
     agg.to_csv(os.path.join(out, "summary.csv"), index=False)
 
     lines = ["# Results: subject-wise 4-fold CV", ""]
-    lines.append("Mean ± std over folds. Positive class = more severe group. "
-                 "Subject-level prediction = mean of the subject's 300 segment probabilities.")
+    lines.append(f"Segments: 1-s windows, {overlap:.0%} overlap, {n_seg} per subject. "
+                 "Mean ± std over folds. Positive class = more severe group. "
+                 f"Subject-level prediction = mean of the subject's {n_seg} segment probabilities.")
     lines.append("")
     for level in ("subject", "segment"):
         lines += [f"## {level.capitalize()}-level", "",
@@ -97,7 +89,7 @@ def main():
 
     labels = load_labels(args.labels)
     data, unlabeled, no_eeg = attach_labels(load_cache(args.cache), labels)
-    segs = segment(data["signals"])  # (n_subjects, 300, 2, 128)
+    segs = segment(data["signals"], overlap=args.overlap)  # (n_subjects, n_segments, 2, 128)
     subjects, severity = data["subjects"], data["severity"]
     print(f"{len(subjects)} labelled subjects, segments {segs.shape}, device {device}")
     print(f"  severity counts (None/Mild/Severe): {np.bincount(severity, minlength=3).tolist()}")
@@ -171,7 +163,7 @@ def main():
                 with open(os.path.join(args.out, "splits.json"), "w") as f:
                     json.dump(splits, f, indent=1)
 
-    print("\n" + summarize(pd.DataFrame(rows), cx_df, baseline, args.out))
+    print("\n" + summarize(pd.DataFrame(rows), cx_df, baseline, args.out, segs.shape[1], args.overlap))
 
 
 if __name__ == "__main__":

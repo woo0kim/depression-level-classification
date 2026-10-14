@@ -1,0 +1,86 @@
+124 labelled subjects, segments (124, 1197, 2, 128), device cuda
+  recordings without label (excluded): ['K015_D1_resting_RECT', 'TRD039_CLH_20230829_RECT', 'TRD049_20250324_RECT', 'nTRD029_LLH_20230905_RECT']
+
+=== c1_none_vs_dep (None vs (Mild + Severe)) / Deep4Net: 69 vs 55 subjects
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.8643, val subject bal-acc 0.450 [52s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.9767, val subject bal-acc 0.521 [48s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7108, val subject bal-acc 0.679 [50s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.7665, val subject bal-acc 0.544 [49s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.8486, val subject bal-acc 0.492 [49s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.6821, val subject bal-acc 0.637 [52s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.0001, dropout=0.25 | inner 1: best epoch 2, val loss 0.8609, val subject bal-acc 0.479 [52s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8192, val subject bal-acc 0.426 [46s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.6715, val subject bal-acc 0.613 [52s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.0001, dropout=0.5 | inner 1: best epoch 4, val loss 0.7725, val subject bal-acc 0.597 [70s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7873, val subject bal-acc 0.397 [46s]
+[c1_none_vs_dep Deep4Net] outer 1 | lr=0.0001, dropout=0.5 | inner 3: best epoch 2, val loss 0.6462, val subject bal-acc 0.647 [51s]
+[c1_none_vs_dep Deep4Net] outer 1: selected lr=0.001, dropout=0.5, 1 epochs (inner best [1, 1, 1]) -> outer-test subject ACC 0.645 [final fit 7s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.001, dropout=0.25 | inner 1: best epoch 2, val loss 1.1552, val subject bal-acc 0.550 [51s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 1.1055, val subject bal-acc 0.473 [49s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.6669, val subject bal-acc 0.630 [49s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.001, dropout=0.5 | inner 1: best epoch 2, val loss 0.9181, val subject bal-acc 0.561 [63s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 1.1781, val subject bal-acc 0.555 [54s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.001, dropout=0.5 | inner 3: best epoch 3, val loss 0.6880, val subject bal-acc 0.746 [63s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.8936, val subject bal-acc 0.483 [49s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.0001, dropout=0.25 | inner 2: best epoch 2, val loss 0.9192, val subject bal-acc 0.489 [53s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.0001, dropout=0.25 | inner 3: best epoch 3, val loss 0.6590, val subject bal-acc 0.718 [58s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 0.8774, val subject bal-acc 0.441 [53s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.9327, val subject bal-acc 0.500 [48s]
+[c1_none_vs_dep Deep4Net] outer 2 | lr=0.0001, dropout=0.5 | inner 3: best epoch 14, val loss 0.6577, val subject bal-acc 0.746 [110s]
+[c1_none_vs_dep Deep4Net] outer 2: selected lr=0.001, dropout=0.5, 2 epochs (inner best [2, 1, 3]) -> outer-test subject ACC 0.548 [final fit 13s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.7270, val subject bal-acc 0.596 [62s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.6922, val subject bal-acc 0.626 [63s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.001, dropout=0.25 | inner 3: best epoch 2, val loss 1.0157, val subject bal-acc 0.532 [71s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.6270, val subject bal-acc 0.724 [63s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.6664, val subject bal-acc 0.685 [64s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.001, dropout=0.5 | inner 3: best epoch 2, val loss 1.0485, val subject bal-acc 0.536 [70s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.6173, val subject bal-acc 0.669 [66s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.0001, dropout=0.25 | inner 2: best epoch 7, val loss 0.7126, val subject bal-acc 0.574 [103s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.9904, val subject bal-acc 0.506 [66s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.0001, dropout=0.5 | inner 1: best epoch 3, val loss 0.5961, val subject bal-acc 0.724 [79s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.0001, dropout=0.5 | inner 2: best epoch 7, val loss 0.6779, val subject bal-acc 0.691 [97s]
+[c1_none_vs_dep Deep4Net] outer 3 | lr=0.0001, dropout=0.5 | inner 3: best epoch 2, val loss 1.1210, val subject bal-acc 0.500 [69s]
+[c1_none_vs_dep Deep4Net] outer 3: selected lr=0.001, dropout=0.5, 1 epochs (inner best [1, 1, 2]) -> outer-test subject ACC 0.581 [final fit 9s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.7961, val subject bal-acc 0.597 [60s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.001, dropout=0.25 | inner 2: best epoch 3, val loss 0.7361, val subject bal-acc 0.727 [73s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7281, val subject bal-acc 0.597 [60s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.7838, val subject bal-acc 0.548 [62s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.6071, val subject bal-acc 0.639 [62s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.6990, val subject bal-acc 0.620 [62s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.0001, dropout=0.25 | inner 1: best epoch 4, val loss 0.7180, val subject bal-acc 0.626 [78s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.0001, dropout=0.25 | inner 2: best epoch 2, val loss 0.6435, val subject bal-acc 0.721 [70s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.6863, val subject bal-acc 0.616 [61s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.0001, dropout=0.5 | inner 1: best epoch 10, val loss 0.7365, val subject bal-acc 0.620 [114s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.0001, dropout=0.5 | inner 2: best epoch 7, val loss 0.6072, val subject bal-acc 0.655 [99s]
+[c1_none_vs_dep Deep4Net] outer 4 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.6754, val subject bal-acc 0.632 [63s]
+[c1_none_vs_dep Deep4Net] outer 4: selected lr=0.0001, dropout=0.25, 2 epochs (inner best [4, 2, 1]) -> outer-test subject ACC 0.419 [final fit 17s]
+Traceback (most recent call last):
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 305, in <module>
+    main()
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 301, in main
+    summarize(args)
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 262, in summarize
+    cx = complexity(build_model(m))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/depression-level-classification/deplevel/models.py", line 50, in complexity
+    m.__class__ = torch.nn.Conv2d
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/braindecode/models/eegnet.py", line 22, in forward
+    self.weight.data, p=2, dim=0, maxnorm=self.max_norm
+    ^^^^^^^^^^^^^^^^
+RuntimeError: Cannot set version_counter for inference tensor

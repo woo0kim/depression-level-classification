@@ -23,7 +23,9 @@ sheet and are excluded: `K015`, `nTRD029`, `TRD039`, `TRD049`.
 2. Take the **middle 300 s** of the recording.
 3. Downsample 1000 → **128 Hz** (polyphase, `scipy.signal.resample_poly`; 1 s of
    extra signal on each side is resampled and trimmed to avoid filter edge effects).
-4. Cut into non-overlapping **1-s segments** → 300 segments × (2 ch × 128 samples) per subject.
+4. Cut into **1-s segments** (2 ch × 128 samples), done in `run_cv.py` (`--overlap`):
+   - non-overlapping (default): 300 segments per subject → `results/subject_cv/`
+   - 75 % overlap (`--overlap 0.75`, 0.25-s step): 1,197 segments per subject → `results/subject_cv_overlap75/`
 
 Within each CV fold, signals are z-scored per channel with the training subjects' mean/std.
 
@@ -63,9 +65,9 @@ tuned; the values below were fixed before the run.
 |---|---|---|
 | Input | Channels / window | F3, F4 / middle 300 s of each recording |
 | | Sampling rate | 128 Hz (from 1000 Hz, polyphase resampling) |
-| | Segments | 1 s, non-overlapping, 300 per subject (37,200 in total) |
+| | Segments | 1 s; non-overlapping: 300 per subject (37,200 in total); 75 % overlap: 1,197 per subject (148,428 in total) |
 | | Normalisation | per-channel z-score, mean/std from the training subjects of each fold |
-| Cross-validation | Scheme | stratified 4-fold, **split by subject** (all 300 segments of a subject are in one fold) |
+| Cross-validation | Scheme | stratified 4-fold, **split by subject** (all segments of a subject are in one fold) |
 | | Validation set | 20 % of the training subjects (stratified), used only for early stopping |
 | | Subjects per fold (train / val / test) | Task 1–2: 74 / 19 / 31; Task 3: 32–33 / 9 / 13–14 |
 | | Random seed | 42 (fold split); 42 + fold index (inner split, weight init, batch order) |
@@ -90,6 +92,39 @@ Not included (intentionally, to follow the specified pipeline): hyper-parameter 
 data augmentation, notch filtering or extra artifact rejection beyond the provided ICA
 cleaning, and the use of age or sex as inputs or covariates.
 
+## Nested cross-validation (`run_nested_cv.py`)
+
+The main protocol. It selects hyper-parameters without touching the test subjects and
+reports metrics on pooled predictions. All splits are by subject and stratified on the task label.
+
+1. **Outer 4-fold CV.** The outer-test subjects of a fold are never used for model selection.
+2. **Inner 3-fold CV** on the outer-training subjects (2/3 train, 1/3 validation, rotated three
+   times). Every grid config is trained on each inner split with early stopping on the
+   class-weighted validation loss (patience 10, max 50 epochs). Its best epoch is the epoch
+   with the lowest validation loss.
+3. **Selection.** The config with the highest mean subject-level validation balanced accuracy
+   over the 3 inner folds is chosen (ties: lower mean validation loss). The final number of
+   epochs is the median of its 3 inner best epochs.
+4. **Final model.** Retrained from scratch on all outer-training subjects for that many epochs,
+   following the same cosine LR schedule.
+5. **Test.** Outer-test subjects are predicted; subject probability = mean of the 1,197 segment
+   probabilities (1-s windows, 75 % overlap), threshold 0.5.
+6. **Pooling.** Each subject gets exactly one outer-test prediction. ACC, balanced ACC, F1,
+   precision, recall, specificity, AUC and the confusion matrix are computed once on the pooled
+   set. Pooled ACC (correct subjects / all subjects) is not the mean of the 4 fold accuracies;
+   the fold mean is reported separately for reference.
+
+| Setting | Value |
+|---|---|
+| Hyper-parameter grid | learning rate {1e-3, 1e-4} × dropout {0.25, 0.5}, the same for all models |
+| Fixed settings | AdamW (weight decay 1e-4), batch 128, class-weighted cross-entropy, cosine LR over 50 epochs |
+| Subjects per fold | outer train / test: 93 / 31 (Tasks 1–2), 41–42 / 13–14 (Task 3); inner train / validation: 62 / 31 and 27–28 / 13–14 |
+| Training runs | 3 tasks × 3 models × 4 outer folds × (4 configs × 3 inner folds + 1 final) = 468 |
+
+Each (task, model) job writes `runs/<task>__<model>/` (`inner_cv.csv`, `selection.csv`,
+`predictions.csv`, `history.json`) and resumes where it stopped. Jobs can run in parallel
+on different GPUs (`--tasks`, `--models`), and `--summarize-only` pools the finished jobs.
+
 ## Environment
 
 | | |
@@ -98,7 +133,8 @@ cleaning, and the use of age or sex as inputs or covariates.
 | OS | macOS 27.0.1 |
 | Accelerator | Apple GPU via PyTorch **MPS** backend (no NVIDIA GPU / CUDA) |
 | Software | Python 3.9.6, PyTorch 2.8.0, braindecode 0.8, MNE 1.8.0, NumPy 2.0.2, SciPy 1.13.1, scikit-learn 1.6.1, pandas 2.3.2, h5py 3.14.0 |
-| Runtime | preprocessing 43 s (CPU); all 36 training runs (3 tasks × 3 models × 4 folds) 15 min on MPS. CPU-only (`--device cpu`) is estimated at ≈ 50 min from per-epoch timings. |
+| Nested CV (`run_nested_cv.py`) | Lab server `mcl-server.usc.edu`: 8 × NVIDIA Quadro M6000 (12 GB), Intel Xeon E5-2620 v3, Ubuntu 24.04; Python 3.11.7, PyTorch 2.1.2+cu121 (cuDNN 8.9), braindecode 0.8, NumPy 1.26.4, SciPy 1.17.1, pandas 3.0.6, scikit-learn 1.9.1, h5py 3.16.0. 9 jobs (task × model) in parallel, one per GPU (two small jobs share one), deterministic cuDNN. |
+| Runtime | preprocessing 43 s (CPU); all 36 training runs (3 tasks × 3 models × 4 folds) 15 min on MPS (56 min with 75 % overlap). CPU-only (`--device cpu`) is estimated at ≈ 50 min from per-epoch timings. |
 
 **A GPU is not required.** The models are small (1.3 k–135 k parameters, ≤ 3.6 MFLOPs
 per segment) and the whole dataset is 37,200 segments of 2 × 128 samples (≈ 38 MB),
@@ -123,6 +159,12 @@ python preprocess.py --data-dir ../Baseline_pre-RECT
 
 # 2) run all tasks × models (≈ 15 min on Apple M4 GPU/MPS, ≈ 50 min on CPU)
 python run_cv.py --labels "../20260616_Demographic_grouped (1).csv" --out results/subject_cv
+# same with 1-s windows at 75 % overlap (≈ 4× longer)
+python run_cv.py --overlap 0.75 --out results/subject_cv_overlap75
+# nested CV (main protocol; 75 % overlap by default). On a multi-GPU machine, run one job per GPU:
+python run_nested_cv.py --labels data/labels.csv --out results/nested_cv_overlap75
+CUDA_VISIBLE_DEVICES=0 python run_nested_cv.py --tasks c1_none_vs_dep --models EEGNet --quiet   # one job
+python run_nested_cv.py --summarize-only --out results/nested_cv_overlap75                     # pool finished jobs
 
 # subsets / options
 python run_cv.py --tasks c3_mild_vs_severe --models EEGNet --epochs 100 --device cpu
@@ -142,8 +184,33 @@ Outputs in `--out`:
 
 ## Results
 
-Subject-wise 4-fold CV, seed 42, mean ± std over folds. Full tables (precision, recall,
-specificity, F1, macro-F1) are in [`results/subject_cv/summary.md`](results/subject_cv/summary.md).
+Three runs, all with the same outer test folds:
+
+| Run | Segments | Training time | Summary | Report |
+|---|---|---|---|---|
+| Non-overlapping | 300 / subject | 15 min | [`summary.md`](results/subject_cv/summary.md) | [`report.pdf`](results/subject_cv/report.pdf) |
+| 75 % overlap | 1,197 / subject | 56 min | [`summary.md`](results/subject_cv_overlap75/summary.md) | [`report.pdf`](results/subject_cv_overlap75/report.pdf) |
+| **Nested CV, 75 % overlap (main)** | 1,197 / subject | 52 min on 8 × Quadro M6000 | [`summary.md`](results/nested_cv_overlap75/summary.md) | [`report.pdf`](results/nested_cv_overlap75/report.pdf) |
+
+The 75 % overlap report includes a side-by-side comparison with the non-overlapping run.
+
+**Main result: nested CV** (pooled over all subjects, one outer-test prediction each):
+
+| Task | Model | ACC | Bal. ACC | AUC | TN / FP / FN / TP | Majority ACC |
+|---|---|---|---|---|---|---|
+| None vs (Mild + Severe) | EEGNet | 0.581 | 0.573 | 0.576 | 44 / 25 / 27 / 28 | 0.556 |
+|  | ShallowFBCSPNet | 0.605 | 0.595 | 0.582 | 47 / 22 / 27 / 28 |  |
+|  | Deep4Net | 0.548 | 0.533 | 0.530 | 46 / 23 / 33 / 22 |  |
+| (None + Mild) vs Severe | EEGNet | 0.597 | 0.378 | 0.385 | 73 / 30 / 20 / 1 | 0.831 |
+|  | ShallowFBCSPNet | 0.621 | 0.469 | 0.421 | 72 / 31 / 16 / 5 |  |
+|  | Deep4Net | 0.556 | 0.354 | 0.408 | 68 / 35 / 20 / 1 |  |
+| Mild vs Severe | EEGNet | 0.600 | 0.613 | 0.581 | 19 / 15 / 7 / 14 | 0.618 |
+|  | ShallowFBCSPNet | 0.509 | 0.485 | 0.436 | 20 / 14 / 13 / 8 |  |
+|  | Deep4Net | 0.545 | 0.560 | 0.480 | 17 / 17 / 8 / 13 |  |
+
+Under nested CV the conclusion is the same as before. No model clearly beats chance: balanced ACC is 0.35–0.61 and AUC 0.39–0.58. On (None + Mild) vs Severe, at most 5 of the 21 severe subjects are detected. The selected final number of epochs is 1–2 in 29 of 36 outer folds: the inner validation loss is lowest almost immediately, and further training only fits the training subjects.
+
+The table below is the **non-overlapping** run, subject-wise 4-fold CV, seed 42, mean ± std over folds.
 
 **Majority ACC** is the accuracy of a trivial classifier that always predicts the larger
 class, for example "None+Mild" for every subject in Task 2 (103 / 124 = 0.831). A model

@@ -1,0 +1,5 @@
+task,model,outer_fold,config,lr,drop_prob,mean_val_sub_bal_acc,mean_val_loss,inner_best_epochs,final_epochs,n_outer_train,n_outer_test
+c3_mild_vs_severe,Deep4Net,1,"lr=0.0001, dropout=0.25",0.0001,0.25,0.5462962962962963,1.0777428944905598,1/1/1,1,41,14
+c3_mild_vs_severe,Deep4Net,2,"lr=0.0001, dropout=0.5",0.0001,0.5,0.5365740740740741,0.7808410127957662,1/1/1,1,41,14
+c3_mild_vs_severe,Deep4Net,3,"lr=0.001, dropout=0.25",0.001,0.25,0.5726851851851852,0.8939435482025146,1/20/1,1,41,14
+c3_mild_vs_severe,Deep4Net,4,"lr=0.0001, dropout=0.5",0.0001,0.5,0.6222222222222222,0.7956286470095316,3/19/5,5,42,13

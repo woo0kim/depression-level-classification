@@ -1,0 +1,104 @@
+124 labelled subjects, segments (124, 1197, 2, 128), device cuda
+  recordings without label (excluded): ['K015_D1_resting_RECT', 'TRD039_CLH_20230829_RECT', 'TRD049_20250324_RECT', 'nTRD029_LLH_20230905_RECT']
+
+=== c3_mild_vs_severe (Mild vs Severe) / ShallowFBCSPNet: 34 vs 21 subjects
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 1.7362, val subject bal-acc 0.422 [17s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.7418, val subject bal-acc 0.533 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.25 | inner 3: best epoch 4, val loss 0.9232, val subject bal-acc 0.425 [19s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 1.4283, val subject bal-acc 0.422 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7202, val subject bal-acc 0.533 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.5 | inner 3: best epoch 4, val loss 0.8661, val subject bal-acc 0.512 [19s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 1.2307, val subject bal-acc 0.267 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.6849, val subject bal-acc 0.478 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7449, val subject bal-acc 0.512 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 1.1836, val subject bal-acc 0.322 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.6943, val subject bal-acc 0.422 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.7235, val subject bal-acc 0.512 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 1: selected lr=0.001, dropout=0.5, 1 epochs (inner best [1, 1, 4]) -> outer-test subject ACC 0.500 [final fit 2s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.25 | inner 1: best epoch 4, val loss 0.9102, val subject bal-acc 0.542 [19s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8193, val subject bal-acc 0.522 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.9383, val subject bal-acc 0.450 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.8322, val subject bal-acc 0.333 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.5 | inner 2: best epoch 8, val loss 0.8112, val subject bal-acc 0.478 [25s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.9330, val subject bal-acc 0.450 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.25 | inner 1: best epoch 3, val loss 0.8006, val subject bal-acc 0.417 [17s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.6981, val subject bal-acc 0.378 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.8305, val subject bal-acc 0.613 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.5 | inner 1: best epoch 3, val loss 0.8125, val subject bal-acc 0.354 [17s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7032, val subject bal-acc 0.478 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.8598, val subject bal-acc 0.613 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 2: selected lr=0.001, dropout=0.25, 1 epochs (inner best [4, 1, 1]) -> outer-test subject ACC 0.429 [final fit 2s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 1.3879, val subject bal-acc 0.312 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8620, val subject bal-acc 0.311 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.9619, val subject bal-acc 0.550 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 1.3682, val subject bal-acc 0.250 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.8338, val subject bal-acc 0.311 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.8227, val subject bal-acc 0.613 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 1.0640, val subject bal-acc 0.312 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.25 | inner 2: best epoch 2, val loss 0.7631, val subject bal-acc 0.322 [18s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7141, val subject bal-acc 0.388 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 1.0874, val subject bal-acc 0.458 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.5 | inner 2: best epoch 2, val loss 0.7652, val subject bal-acc 0.322 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.7006, val subject bal-acc 0.487 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 3: selected lr=0.0001, dropout=0.5, 1 epochs (inner best [1, 2, 1]) -> outer-test subject ACC 0.643 [final fit 2s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.9366, val subject bal-acc 0.625 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.25 | inner 2: best epoch 2, val loss 1.0379, val subject bal-acc 0.311 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.8399, val subject bal-acc 0.633 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.9090, val subject bal-acc 0.625 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.5 | inner 2: best epoch 2, val loss 0.9228, val subject bal-acc 0.478 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.8114, val subject bal-acc 0.633 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.6770, val subject bal-acc 0.667 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.7885, val subject bal-acc 0.422 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7703, val subject bal-acc 0.589 [16s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 0.6672, val subject bal-acc 0.667 [15s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7889, val subject bal-acc 0.422 [14s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.7790, val subject bal-acc 0.533 [17s]
+[c3_mild_vs_severe ShallowFBCSPNet] outer 4: selected lr=0.001, dropout=0.5, 1 epochs (inner best [1, 2, 1]) -> outer-test subject ACC 0.462 [final fit 2s]
+# Results: nested subject-wise CV
+
+Outer 4-fold × inner 3-fold CV, split by subject. 1-s windows, 75% overlap (1,197 per subject). Hyper-parameter grid: lr {0.001, 0.0001} × dropout {0.25, 0.5}. Every subject is tested exactly once; metrics are computed once on the pooled outer-test predictions. Subject probability = mean of its segment probabilities, threshold 0.5. Positive class = more severe group.
+
+**Incomplete (not shown):** c1_none_vs_dep / EEGNet: 1/4 outer folds; c1_none_vs_dep / ShallowFBCSPNet: 1/4 outer folds; c1_none_vs_dep / Deep4Net: 1/4 outer folds; c2_nonemild_vs_severe / EEGNet: 1/4 outer folds; c2_nonemild_vs_severe / ShallowFBCSPNet: 1/4 outer folds; c2_nonemild_vs_severe / Deep4Net: 1/4 outer folds; c3_mild_vs_severe / EEGNet: 3/4 outer folds; c3_mild_vs_severe / Deep4Net: 2/4 outer folds
+
+## Pooled subject-level results
+
+| Task | Model | ACC | Bal. ACC | F1 | Precision | Recall | Specificity | AUC | TN / FP / FN / TP |
+|---|---|---|---|---|---|---|---|---|---|
+| Mild vs Severe | ShallowFBCSPNet | 0.509 | 0.485 | 0.372 | 0.364 | 0.381 | 0.588 | 0.436 | 20 / 14 / 13 / 8 |
+
+## Pooled vs. fold-averaged accuracy
+
+Pooled ACC = correctly classified subjects / all subjects. Fold-mean ACC weights each outer fold equally (shown for reference only).
+
+| Task | Model | Subjects | Pooled ACC | Fold-mean ACC ± std | Pooled segment ACC | Pooled segment Bal. ACC |
+|---|---|---|---|---|---|---|
+| Mild vs Severe | ShallowFBCSPNet | 55 | 0.509 | 0.508 ± 0.094 | 0.502 | 0.480 |
+
+## Selected hyper-parameters per outer fold
+
+Config chosen by mean inner-validation subject-level balanced accuracy; epochs = median of the 3 inner best epochs (lowest validation loss).
+
+| Task | Model | Outer fold 1 | Outer fold 2 | Outer fold 3 | Outer fold 4 |
+|---|---|---|---|---|---|
+| None vs (Mild + Severe) | Deep4Net | lr 0.001, p 0.5, 1 ep | – | – | – |
+| None vs (Mild + Severe) | EEGNet | lr 0.0001, p 0.5, 1 ep | – | – | – |
+| None vs (Mild + Severe) | ShallowFBCSPNet | lr 0.0001, p 0.5, 1 ep | – | – | – |
+| (None + Mild) vs Severe | Deep4Net | lr 0.0001, p 0.25, 2 ep | – | – | – |
+| (None + Mild) vs Severe | EEGNet | lr 0.0001, p 0.25, 1 ep | – | – | – |
+| (None + Mild) vs Severe | ShallowFBCSPNet | lr 0.001, p 0.5, 1 ep | – | – | – |
+| Mild vs Severe | Deep4Net | lr 0.0001, p 0.25, 1 ep | lr 0.0001, p 0.5, 1 ep | – | – |
+| Mild vs Severe | EEGNet | lr 0.0001, p 0.25, 3 ep | lr 0.001, p 0.25, 1 ep | lr 0.001, p 0.25, 1 ep | – |
+| Mild vs Severe | ShallowFBCSPNet | lr 0.001, p 0.5, 1 ep | lr 0.001, p 0.25, 1 ep | lr 0.0001, p 0.5, 1 ep | lr 0.001, p 0.5, 1 ep |
+
+## Majority-class baseline
+
+| Task | Subjects (neg / pos) | Majority ACC |
+|---|---|---|
+| Mild vs Severe | 34 / 21 | 0.618 |
+
+## Model complexity (input 2 × 128)
+
+| Model | Params | Size (KB, fp32) | FLOPs / segment |
+|---|---|---|---|
+| ShallowFBCSPNet | 4,482 | 17.8 | 0.420 M |
+

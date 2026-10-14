@@ -1,0 +1,5 @@
+task,model,outer_fold,config,lr,drop_prob,mean_val_sub_bal_acc,mean_val_loss,inner_best_epochs,final_epochs,n_outer_train,n_outer_test
+c3_mild_vs_severe,ShallowFBCSPNet,1,"lr=0.001, dropout=0.5",0.001,0.5,0.4893518518518518,1.00486820936203,1/1/4,1,41,14
+c3_mild_vs_severe,ShallowFBCSPNet,2,"lr=0.001, dropout=0.25",0.001,0.25,0.5046296296296297,0.8892602324485779,4/1/1,1,41,14
+c3_mild_vs_severe,ShallowFBCSPNet,3,"lr=0.0001, dropout=0.5",0.0001,0.5,0.42268518518518516,0.8510939081509908,1/2/1,1,41,14
+c3_mild_vs_severe,ShallowFBCSPNet,4,"lr=0.001, dropout=0.5",0.001,0.5,0.5787037037037037,0.8810714284578959,1/2/1,1,42,13

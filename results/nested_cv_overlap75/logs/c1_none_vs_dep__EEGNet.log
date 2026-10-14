@@ -1,0 +1,86 @@
+124 labelled subjects, segments (124, 1197, 2, 128), device cuda
+  recordings without label (excluded): ['K015_D1_resting_RECT', 'TRD039_CLH_20230829_RECT', 'TRD049_20250324_RECT', 'nTRD029_LLH_20230905_RECT']
+
+=== c1_none_vs_dep (None vs (Mild + Severe)) / EEGNet: 69 vs 55 subjects
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.9045, val subject bal-acc 0.485 [37s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.7776, val subject bal-acc 0.527 [35s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.6625, val subject bal-acc 0.729 [35s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.8441, val subject bal-acc 0.456 [35s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7689, val subject bal-acc 0.515 [35s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.6616, val subject bal-acc 0.729 [35s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.7571, val subject bal-acc 0.544 [35s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.7096, val subject bal-acc 0.544 [36s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.0001, dropout=0.25 | inner 3: best epoch 3, val loss 0.6562, val subject bal-acc 0.701 [41s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 0.7081, val subject bal-acc 0.580 [34s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.6995, val subject bal-acc 0.485 [33s]
+[c1_none_vs_dep EEGNet] outer 1 | lr=0.0001, dropout=0.5 | inner 3: best epoch 5, val loss 0.6567, val subject bal-acc 0.729 [49s]
+[c1_none_vs_dep EEGNet] outer 1: selected lr=0.0001, dropout=0.5, 1 epochs (inner best [1, 1, 5]) -> outer-test subject ACC 0.613 [final fit 5s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.001, dropout=0.25 | inner 1: best epoch 2, val loss 0.9304, val subject bal-acc 0.401 [40s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8195, val subject bal-acc 0.431 [37s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.001, dropout=0.25 | inner 3: best epoch 5, val loss 0.7022, val subject bal-acc 0.697 [45s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.001, dropout=0.5 | inner 1: best epoch 2, val loss 0.9193, val subject bal-acc 0.466 [36s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7836, val subject bal-acc 0.454 [35s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.001, dropout=0.5 | inner 3: best epoch 5, val loss 0.7376, val subject bal-acc 0.630 [45s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.7391, val subject bal-acc 0.353 [35s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.7372, val subject bal-acc 0.460 [35s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.6973, val subject bal-acc 0.613 [35s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 0.7175, val subject bal-acc 0.353 [43s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7201, val subject bal-acc 0.389 [40s]
+[c1_none_vs_dep EEGNet] outer 2 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.6946, val subject bal-acc 0.524 [36s]
+[c1_none_vs_dep EEGNet] outer 2: selected lr=0.001, dropout=0.5, 2 epochs (inner best [2, 1, 5]) -> outer-test subject ACC 0.710 [final fit 12s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.6828, val subject bal-acc 0.707 [37s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.001, dropout=0.25 | inner 2: best epoch 7, val loss 0.6937, val subject bal-acc 0.586 [54s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.8445, val subject bal-acc 0.401 [35s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.001, dropout=0.5 | inner 1: best epoch 2, val loss 0.6471, val subject bal-acc 0.701 [38s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.6456, val subject bal-acc 0.609 [35s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.8006, val subject bal-acc 0.437 [38s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.0001, dropout=0.25 | inner 1: best epoch 4, val loss 0.6295, val subject bal-acc 0.679 [45s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.0001, dropout=0.25 | inner 2: best epoch 7, val loss 0.6635, val subject bal-acc 0.609 [54s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7841, val subject bal-acc 0.336 [35s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.0001, dropout=0.5 | inner 1: best epoch 4, val loss 0.6327, val subject bal-acc 0.662 [46s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.0001, dropout=0.5 | inner 2: best epoch 10, val loss 0.6412, val subject bal-acc 0.609 [75s]
+[c1_none_vs_dep EEGNet] outer 3 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 0.7342, val subject bal-acc 0.378 [38s]
+[c1_none_vs_dep EEGNet] outer 3: selected lr=0.001, dropout=0.5, 1 epochs (inner best [2, 1, 1]) -> outer-test subject ACC 0.548 [final fit 4s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.6750, val subject bal-acc 0.603 [41s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.001, dropout=0.25 | inner 2: best epoch 2, val loss 0.6254, val subject bal-acc 0.704 [46s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.6848, val subject bal-acc 0.632 [44s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.001, dropout=0.5 | inner 1: best epoch 10, val loss 0.6654, val subject bal-acc 0.739 [74s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.001, dropout=0.5 | inner 2: best epoch 4, val loss 0.6214, val subject bal-acc 0.739 [54s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.6725, val subject bal-acc 0.626 [43s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.0001, dropout=0.25 | inner 1: best epoch 5, val loss 0.6736, val subject bal-acc 0.603 [59s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.0001, dropout=0.25 | inner 2: best epoch 17, val loss 0.6168, val subject bal-acc 0.739 [104s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.0001, dropout=0.25 | inner 3: best epoch 2, val loss 0.6499, val subject bal-acc 0.727 [46s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.0001, dropout=0.5 | inner 1: best epoch 12, val loss 0.6761, val subject bal-acc 0.544 [65s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.0001, dropout=0.5 | inner 2: best epoch 23, val loss 0.6210, val subject bal-acc 0.681 [118s]
+[c1_none_vs_dep EEGNet] outer 4 | lr=0.0001, dropout=0.5 | inner 3: best epoch 3, val loss 0.6705, val subject bal-acc 0.620 [44s]
+[c1_none_vs_dep EEGNet] outer 4: selected lr=0.001, dropout=0.5, 4 epochs (inner best [10, 4, 1]) -> outer-test subject ACC 0.452 [final fit 23s]
+Traceback (most recent call last):
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 305, in <module>
+    main()
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 301, in main
+    summarize(args)
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 262, in summarize
+    cx = complexity(build_model(m))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/depression-level-classification/deplevel/models.py", line 50, in complexity
+    m.__class__ = torch.nn.Conv2d
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/braindecode/models/eegnet.py", line 22, in forward
+    self.weight.data, p=2, dim=0, maxnorm=self.max_norm
+    ^^^^^^^^^^^^^^^^
+RuntimeError: Cannot set version_counter for inference tensor

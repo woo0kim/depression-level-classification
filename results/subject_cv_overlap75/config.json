@@ -1,0 +1,33 @@
+{
+  "labels": "../20260616_Demographic_grouped (1).csv",
+  "cache": "cache/f3f4_mid300s_128hz.npz",
+  "tasks": [
+    "c1_none_vs_dep",
+    "c2_nonemild_vs_severe",
+    "c3_mild_vs_severe"
+  ],
+  "models": [
+    "EEGNet",
+    "ShallowFBCSPNet",
+    "Deep4Net"
+  ],
+  "folds": 4,
+  "overlap": 0.75,
+  "seed": 42,
+  "val_frac": 0.2,
+  "epochs": 50,
+  "patience": 10,
+  "batch_size": 128,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "device": "mps",
+  "out": "results/subject_cv_overlap75",
+  "quiet": false,
+  "n_subjects": 124,
+  "excluded_recordings": [
+    "K015_D1_resting_RECT",
+    "TRD039_CLH_20230829_RECT",
+    "TRD049_20250324_RECT",
+    "nTRD029_LLH_20230905_RECT"
+  ]
+}

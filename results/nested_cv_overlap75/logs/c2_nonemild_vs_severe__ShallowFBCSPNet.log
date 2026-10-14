@@ -1,0 +1,86 @@
+124 labelled subjects, segments (124, 1197, 2, 128), device cuda
+  recordings without label (excluded): ['K015_D1_resting_RECT', 'TRD039_CLH_20230829_RECT', 'TRD049_20250324_RECT', 'nTRD029_LLH_20230905_RECT']
+
+=== c2_nonemild_vs_severe ((None + Mild) vs Severe) / ShallowFBCSPNet: 103 vs 21 subjects
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.25 | inner 1: best epoch 2, val loss 0.7234, val subject bal-acc 0.465 [36s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 1.0899, val subject bal-acc 0.446 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 1.1271, val subject bal-acc 0.408 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.5 | inner 1: best epoch 7, val loss 0.6974, val subject bal-acc 0.727 [48s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.9693, val subject bal-acc 0.369 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 1.0289, val subject bal-acc 0.408 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.25 | inner 1: best epoch 2, val loss 0.7090, val subject bal-acc 0.546 [33s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8960, val subject bal-acc 0.273 [35s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.9881, val subject bal-acc 0.427 [30s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.5 | inner 1: best epoch 2, val loss 0.7219, val subject bal-acc 0.546 [33s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.5 | inner 2: best epoch 1, val loss 0.8826, val subject bal-acc 0.273 [30s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 1.0047, val subject bal-acc 0.427 [29s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 1: selected lr=0.001, dropout=0.5, 1 epochs (inner best [7, 1, 1]) -> outer-test subject ACC 0.613 [final fit 4s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.25 | inner 1: best epoch 1, val loss 0.8810, val subject bal-acc 0.547 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.25 | inner 2: best epoch 2, val loss 0.6575, val subject bal-acc 0.627 [35s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.25 | inner 3: best epoch 6, val loss 0.7714, val subject bal-acc 0.527 [48s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.5 | inner 1: best epoch 1, val loss 0.8005, val subject bal-acc 0.630 [29s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.5 | inner 2: best epoch 2, val loss 0.6731, val subject bal-acc 0.608 [32s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.001, dropout=0.5 | inner 3: best epoch 3, val loss 0.7289, val subject bal-acc 0.527 [34s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.7998, val subject bal-acc 0.443 [33s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.25 | inner 2: best epoch 8, val loss 0.6562, val subject bal-acc 0.665 [48s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.7302, val subject bal-acc 0.646 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 0.7998, val subject bal-acc 0.403 [32s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.5 | inner 2: best epoch 8, val loss 0.6649, val subject bal-acc 0.627 [54s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2 | lr=0.0001, dropout=0.5 | inner 3: best epoch 10, val loss 0.7285, val subject bal-acc 0.627 [69s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 2: selected lr=0.001, dropout=0.5, 2 epochs (inner best [1, 2, 3]) -> outer-test subject ACC 0.710 [final fit 9s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.25 | inner 1: best epoch 13, val loss 1.2732, val subject bal-acc 0.380 [71s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.9350, val subject bal-acc 0.523 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 1.4282, val subject bal-acc 0.446 [32s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.5 | inner 1: best epoch 5, val loss 1.2064, val subject bal-acc 0.420 [43s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.8390, val subject bal-acc 0.585 [32s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 1.2218, val subject bal-acc 0.446 [34s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 1.0307, val subject bal-acc 0.420 [34s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8326, val subject bal-acc 0.469 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 1.1906, val subject bal-acc 0.446 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 1.0134, val subject bal-acc 0.420 [31s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.5 | inner 2: best epoch 3, val loss 0.8522, val subject bal-acc 0.508 [37s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3 | lr=0.0001, dropout=0.5 | inner 3: best epoch 1, val loss 1.1828, val subject bal-acc 0.427 [35s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 3: selected lr=0.001, dropout=0.5, 1 epochs (inner best [5, 1, 1]) -> outer-test subject ACC 0.710 [final fit 5s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.25 | inner 1: best epoch 2, val loss 1.2789, val subject bal-acc 0.470 [42s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.25 | inner 2: best epoch 1, val loss 0.8383, val subject bal-acc 0.408 [42s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.25 | inner 3: best epoch 1, val loss 0.8386, val subject bal-acc 0.600 [40s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.5 | inner 1: best epoch 3, val loss 1.1460, val subject bal-acc 0.467 [49s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.5 | inner 2: best epoch 1, val loss 0.7559, val subject bal-acc 0.565 [42s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.001, dropout=0.5 | inner 3: best epoch 1, val loss 0.7756, val subject bal-acc 0.600 [43s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.25 | inner 1: best epoch 1, val loss 0.9226, val subject bal-acc 0.553 [40s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.25 | inner 2: best epoch 2, val loss 0.7821, val subject bal-acc 0.565 [43s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.25 | inner 3: best epoch 1, val loss 0.8003, val subject bal-acc 0.562 [42s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.5 | inner 1: best epoch 1, val loss 0.8965, val subject bal-acc 0.553 [41s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.5 | inner 2: best epoch 8, val loss 0.7534, val subject bal-acc 0.565 [64s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4 | lr=0.0001, dropout=0.5 | inner 3: best epoch 5, val loss 0.7773, val subject bal-acc 0.562 [59s]
+[c2_nonemild_vs_severe ShallowFBCSPNet] outer 4: selected lr=0.0001, dropout=0.5, 5 epochs (inner best [1, 8, 5]) -> outer-test subject ACC 0.452 [final fit 27s]
+Traceback (most recent call last):
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 305, in <module>
+    main()
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 301, in main
+    summarize(args)
+  File "/home/wkim/depression-level-classification/run_nested_cv.py", line 262, in summarize
+    cx = complexity(build_model(m))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/depression-level-classification/deplevel/models.py", line 50, in complexity
+    m.__class__ = torch.nn.Conv2d
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wkim/miniforge3/envs/deplevel/lib/python3.11/site-packages/braindecode/models/eegnet.py", line 22, in forward
+    self.weight.data, p=2, dim=0, maxnorm=self.max_norm
+    ^^^^^^^^^^^^^^^^
+RuntimeError: Cannot set version_counter for inference tensor

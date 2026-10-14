@@ -1,0 +1,5 @@
+task,model,outer_fold,config,lr,drop_prob,mean_val_sub_bal_acc,mean_val_loss,inner_best_epochs,final_epochs,n_outer_train,n_outer_test
+c1_none_vs_dep,EEGNet,1,"lr=0.0001, dropout=0.5",0.0001,0.5,0.5979195096842156,0.6880655884742737,1/1/5,1,93,31
+c1_none_vs_dep,EEGNet,2,"lr=0.001, dropout=0.5",0.001,0.5,0.5168366491895903,0.8134669065475464,2/1/5,2,93,31
+c1_none_vs_dep,EEGNet,3,"lr=0.001, dropout=0.5",0.001,0.5,0.582357729416553,0.6977601448694865,2/1/1,1,93,31
+c1_none_vs_dep,EEGNet,4,"lr=0.001, dropout=0.5",0.001,0.5,0.7016806722689076,0.6530793706576029,10/4/1,4,93,31

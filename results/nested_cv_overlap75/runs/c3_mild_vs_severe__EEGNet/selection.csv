@@ -1,0 +1,5 @@
+task,model,outer_fold,config,lr,drop_prob,mean_val_sub_bal_acc,mean_val_loss,inner_best_epochs,final_epochs,n_outer_train,n_outer_test
+c3_mild_vs_severe,EEGNet,1,"lr=0.0001, dropout=0.25",0.0001,0.25,0.5217592592592593,0.6709267298380533,1/5/3,3,41,14
+c3_mild_vs_severe,EEGNet,2,"lr=0.001, dropout=0.25",0.001,0.25,0.5513888888888889,0.7037200530370077,1/1/1,1,41,14
+c3_mild_vs_severe,EEGNet,3,"lr=0.001, dropout=0.25",0.001,0.25,0.5412037037037037,0.723535935084025,1/1/1,1,41,14
+c3_mild_vs_severe,EEGNet,4,"lr=0.001, dropout=0.5",0.001,0.5,0.5671296296296297,0.710310717423757,1/1/1,1,42,13

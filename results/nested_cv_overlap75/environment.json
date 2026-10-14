@@ -1,0 +1,7 @@
+{
+ "outer_sizes": "93 / 31 (None vs (Mild + Severe), (None + Mild) vs Severe); 41–42 / 13–14 (Mild vs Severe)",
+ "inner_sizes": "62 / 31; 27–28 / 13–14 (Mild vs Severe)",
+ "hardware": "Lab server mcl-server.usc.edu: 8 × NVIDIA Quadro M6000 (12 GB), Intel Xeon E5-2620 v3 (24 threads), Ubuntu 24.04",
+ "software": "Python 3.11.7, PyTorch 2.1.2+cu121 (cuDNN 8.9.2), braindecode 0.8, NumPy 1.26.4, SciPy 1.17.1, pandas 3.0.6, scikit-learn 1.9.1, h5py 3.16.0",
+ "runtime": "468 training runs (432 inner + 36 final). 9 jobs (task × model) in parallel, one per GPU (the two smallest share one): 52 min wall-clock, ≈ 4.8 GPU-hours"
+}

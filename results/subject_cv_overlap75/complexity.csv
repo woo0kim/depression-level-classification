@@ -1,0 +1,4 @@
+model,params,trainable_params,size_kb,flops,mflops
+EEGNet,1266,1266,5.28125,306496,0.306496
+ShallowFBCSPNet,4482,4482,17.828125,419520,0.41952
+Deep4Net,135002,135002,530.3125,3641450,3.64145

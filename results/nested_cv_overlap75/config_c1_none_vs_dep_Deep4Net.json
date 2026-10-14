@@ -1,0 +1,52 @@
+{
+  "labels": "data/labels.csv",
+  "cache": "cache/f3f4_mid300s_128hz.npz",
+  "tasks": [
+    "c1_none_vs_dep"
+  ],
+  "models": [
+    "Deep4Net"
+  ],
+  "outer_folds": 4,
+  "inner_folds": 3,
+  "overlap": 0.75,
+  "seed": 42,
+  "lrs": [
+    0.001,
+    0.0001
+  ],
+  "dropouts": [
+    0.25,
+    0.5
+  ],
+  "max_epochs": 50,
+  "patience": 10,
+  "batch_size": 128,
+  "weight_decay": 0.0001,
+  "device": "cuda",
+  "out": "results/nested_cv_overlap75",
+  "summarize_only": false,
+  "quiet": true,
+  "grid": [
+    {
+      "config": "lr=0.001, dropout=0.25",
+      "lr": 0.001,
+      "drop_prob": 0.25
+    },
+    {
+      "config": "lr=0.001, dropout=0.5",
+      "lr": 0.001,
+      "drop_prob": 0.5
+    },
+    {
+      "config": "lr=0.0001, dropout=0.25",
+      "lr": 0.0001,
+      "drop_prob": 0.25
+    },
+    {
+      "config": "lr=0.0001, dropout=0.5",
+      "lr": 0.0001,
+      "drop_prob": 0.5
+    }
+  ]
+}

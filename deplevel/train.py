@@ -13,6 +13,9 @@ def set_seed(seed):
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
+    # Deterministic cuDNN convolutions, so CUDA runs are repeatable on the same GPU (no effect on CPU/MPS).
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 
 def pick_device(name="auto"):
@@ -48,18 +51,29 @@ def predict_proba(model, x, device, batch_size=1024):
 
 
 def fit(model, x_train, y_train, x_val, y_val, device, epochs=50, patience=10, batch_size=128,
-        lr=1e-3, weight_decay=1e-4, seed=0, log=print):
-    """Train with class-weighted cross-entropy; keep the weights with the lowest
-    (class-weighted) validation loss and stop after `patience` epochs without improvement."""
+        lr=1e-3, weight_decay=1e-4, seed=0, schedule_epochs=None, val_subject_size=None, log=print):
+    """Train with class-weighted cross-entropy.
+
+    With validation data, keep the weights with the lowest (class-weighted) validation loss and
+    stop after `patience` epochs without improvement. With `x_val=None`, train for exactly
+    `epochs` epochs and return the final weights.
+
+    The cosine LR schedule spans `schedule_epochs` (default: `epochs`), so a fixed-length run can
+    follow the same LR trajectory as an early-stopped run with a longer budget.
+    `val_subject_size` (segments per validation subject, subject-major order) adds subject-level
+    validation metrics (mean segment probability per subject) to the history.
+    """
     model.to(device)
     xt = torch.as_tensor(x_train, dtype=torch.float32, device=device)
     yt = torch.as_tensor(y_train, dtype=torch.long, device=device)
-    xv = torch.as_tensor(x_val, dtype=torch.float32, device=device)
-    yv = torch.as_tensor(y_val, dtype=torch.long, device=device)
+    has_val = x_val is not None
+    if has_val:
+        xv = torch.as_tensor(x_val, dtype=torch.float32, device=device)
+        yv = torch.as_tensor(y_val, dtype=torch.long, device=device)
 
     criterion = torch.nn.CrossEntropyLoss(weight=class_weights(y_train).to(device))
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=schedule_epochs or epochs)
     gen = torch.Generator().manual_seed(seed)
 
     best = {"loss": float("inf"), "epoch": 0, "state": None}
@@ -77,22 +91,35 @@ def fit(model, x_train, y_train, x_val, y_val, device, epochs=50, patience=10, b
             total += loss.item() * len(idx)
             n += len(idx)
         scheduler.step()
+        record = {"epoch": epoch, "train_loss": total / n}
+
+        if not has_val:
+            history.append(record)
+            log(f"    epoch {epoch:3d}  train {total / n:.4f}  {time.time() - t0:.1f}s")
+            continue
 
         model.eval()
         with torch.no_grad():
             logits = torch.cat([model(xv[i]) for i in _batches(len(xv), 1024, shuffle=False)])
             val_loss = criterion(logits, yv).item()
             val_bacc = balanced_accuracy_score(y_val, logits.argmax(1).cpu().numpy())
-        history.append({"epoch": epoch, "train_loss": total / n, "val_loss": val_loss,
-                        "val_bal_acc": val_bacc})
+        record.update(val_loss=val_loss, val_bal_acc=val_bacc)
+        if val_subject_size:
+            p_sub = torch.softmax(logits, 1)[:, 1].cpu().numpy().reshape(-1, val_subject_size).mean(1)
+            sub = binary_metrics(np.asarray(y_val)[::val_subject_size], p_sub)
+            record.update(val_sub_acc=sub["acc"], val_sub_bal_acc=sub["bal_acc"], val_sub_auc=sub["auc"])
+        history.append(record)
         improved = val_loss < best["loss"]
         if improved:
             best = {"loss": val_loss, "epoch": epoch, "state": copy.deepcopy(model.state_dict())}
+        sub_txt = f"  val_sub_bacc {record['val_sub_bal_acc']:.3f}" if val_subject_size else ""
         log(f"    epoch {epoch:3d}  train {total / n:.4f}  val {val_loss:.4f}  "
-            f"val_bacc {val_bacc:.3f}  {time.time() - t0:.1f}s{'  *' if improved else ''}")
+            f"val_bacc {val_bacc:.3f}{sub_txt}  {time.time() - t0:.1f}s{'  *' if improved else ''}")
         if epoch - best["epoch"] >= patience:
             break
 
+    if not has_val:
+        return model, epochs, history
     model.load_state_dict(best["state"])
     return model, best["epoch"], history
 

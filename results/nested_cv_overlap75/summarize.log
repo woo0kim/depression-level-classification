@@ -1,0 +1,66 @@
+# Results: nested subject-wise CV
+
+Outer 4-fold × inner 3-fold CV, split by subject. 1-s windows, 75% overlap (1,197 per subject). Hyper-parameter grid: lr {0.001, 0.0001} × dropout {0.25, 0.5}. Every subject is tested exactly once; metrics are computed once on the pooled outer-test predictions. Subject probability = mean of its segment probabilities, threshold 0.5. Positive class = more severe group.
+
+## Pooled subject-level results
+
+| Task | Model | ACC | Bal. ACC | F1 | Precision | Recall | Specificity | AUC | TN / FP / FN / TP |
+|---|---|---|---|---|---|---|---|---|---|
+| None vs (Mild + Severe) | EEGNet | 0.581 | 0.573 | 0.519 | 0.528 | 0.509 | 0.638 | 0.576 | 44 / 25 / 27 / 28 |
+| None vs (Mild + Severe) | ShallowFBCSPNet | 0.605 | 0.595 | 0.533 | 0.560 | 0.509 | 0.681 | 0.582 | 47 / 22 / 27 / 28 |
+| None vs (Mild + Severe) | Deep4Net | 0.548 | 0.533 | 0.440 | 0.489 | 0.400 | 0.667 | 0.530 | 46 / 23 / 33 / 22 |
+| (None + Mild) vs Severe | EEGNet | 0.597 | 0.378 | 0.038 | 0.032 | 0.048 | 0.709 | 0.385 | 73 / 30 / 20 / 1 |
+| (None + Mild) vs Severe | ShallowFBCSPNet | 0.621 | 0.469 | 0.175 | 0.139 | 0.238 | 0.699 | 0.421 | 72 / 31 / 16 / 5 |
+| (None + Mild) vs Severe | Deep4Net | 0.556 | 0.354 | 0.035 | 0.028 | 0.048 | 0.660 | 0.408 | 68 / 35 / 20 / 1 |
+| Mild vs Severe | EEGNet | 0.600 | 0.613 | 0.560 | 0.483 | 0.667 | 0.559 | 0.581 | 19 / 15 / 7 / 14 |
+| Mild vs Severe | ShallowFBCSPNet | 0.509 | 0.485 | 0.372 | 0.364 | 0.381 | 0.588 | 0.436 | 20 / 14 / 13 / 8 |
+| Mild vs Severe | Deep4Net | 0.545 | 0.560 | 0.510 | 0.433 | 0.619 | 0.500 | 0.480 | 17 / 17 / 8 / 13 |
+
+## Pooled vs. fold-averaged accuracy
+
+Pooled ACC = correctly classified subjects / all subjects. Fold-mean ACC weights each outer fold equally (shown for reference only).
+
+| Task | Model | Subjects | Pooled ACC | Fold-mean ACC ± std | Pooled segment ACC | Pooled segment Bal. ACC |
+|---|---|---|---|---|---|---|
+| None vs (Mild + Severe) | EEGNet | 124 | 0.581 | 0.581 ± 0.109 | 0.574 | 0.566 |
+| None vs (Mild + Severe) | ShallowFBCSPNet | 124 | 0.605 | 0.605 ± 0.085 | 0.568 | 0.558 |
+| None vs (Mild + Severe) | Deep4Net | 124 | 0.548 | 0.548 ± 0.095 | 0.560 | 0.545 |
+| (None + Mild) vs Severe | EEGNet | 124 | 0.597 | 0.597 ± 0.170 | 0.570 | 0.418 |
+| (None + Mild) vs Severe | ShallowFBCSPNet | 124 | 0.621 | 0.621 ± 0.122 | 0.588 | 0.477 |
+| (None + Mild) vs Severe | Deep4Net | 124 | 0.556 | 0.556 ± 0.133 | 0.578 | 0.433 |
+| Mild vs Severe | EEGNet | 55 | 0.600 | 0.598 ± 0.108 | 0.545 | 0.549 |
+| Mild vs Severe | ShallowFBCSPNet | 55 | 0.509 | 0.508 ± 0.094 | 0.502 | 0.480 |
+| Mild vs Severe | Deep4Net | 55 | 0.545 | 0.545 ± 0.089 | 0.485 | 0.502 |
+
+## Selected hyper-parameters per outer fold
+
+Config chosen by mean inner-validation subject-level balanced accuracy; epochs = median of the 3 inner best epochs (lowest validation loss).
+
+| Task | Model | Outer fold 1 | Outer fold 2 | Outer fold 3 | Outer fold 4 |
+|---|---|---|---|---|---|
+| None vs (Mild + Severe) | Deep4Net | lr 0.001, p 0.5, 1 ep | lr 0.001, p 0.5, 2 ep | lr 0.001, p 0.5, 1 ep | lr 0.0001, p 0.25, 2 ep |
+| None vs (Mild + Severe) | EEGNet | lr 0.0001, p 0.5, 1 ep | lr 0.001, p 0.5, 2 ep | lr 0.001, p 0.5, 1 ep | lr 0.001, p 0.5, 4 ep |
+| None vs (Mild + Severe) | ShallowFBCSPNet | lr 0.0001, p 0.5, 1 ep | lr 0.001, p 0.5, 1 ep | lr 0.0001, p 0.5, 10 ep | lr 0.001, p 0.25, 3 ep |
+| (None + Mild) vs Severe | Deep4Net | lr 0.0001, p 0.25, 2 ep | lr 0.001, p 0.25, 2 ep | lr 0.0001, p 0.25, 1 ep | lr 0.0001, p 0.25, 2 ep |
+| (None + Mild) vs Severe | EEGNet | lr 0.0001, p 0.25, 1 ep | lr 0.001, p 0.5, 16 ep | lr 0.001, p 0.5, 1 ep | lr 0.001, p 0.5, 2 ep |
+| (None + Mild) vs Severe | ShallowFBCSPNet | lr 0.001, p 0.5, 1 ep | lr 0.001, p 0.5, 2 ep | lr 0.001, p 0.5, 1 ep | lr 0.0001, p 0.5, 5 ep |
+| Mild vs Severe | Deep4Net | lr 0.0001, p 0.25, 1 ep | lr 0.0001, p 0.5, 1 ep | lr 0.001, p 0.25, 1 ep | lr 0.0001, p 0.5, 5 ep |
+| Mild vs Severe | EEGNet | lr 0.0001, p 0.25, 3 ep | lr 0.001, p 0.25, 1 ep | lr 0.001, p 0.25, 1 ep | lr 0.001, p 0.5, 1 ep |
+| Mild vs Severe | ShallowFBCSPNet | lr 0.001, p 0.5, 1 ep | lr 0.001, p 0.25, 1 ep | lr 0.0001, p 0.5, 1 ep | lr 0.001, p 0.5, 1 ep |
+
+## Majority-class baseline
+
+| Task | Subjects (neg / pos) | Majority ACC |
+|---|---|---|
+| None vs (Mild + Severe) | 69 / 55 | 0.556 |
+| (None + Mild) vs Severe | 103 / 21 | 0.831 |
+| Mild vs Severe | 34 / 21 | 0.618 |
+
+## Model complexity (input 2 × 128)
+
+| Model | Params | Size (KB, fp32) | FLOPs / segment |
+|---|---|---|---|
+| EEGNet | 1,266 | 5.3 | 0.306 M |
+| ShallowFBCSPNet | 4,482 | 17.8 | 0.420 M |
+| Deep4Net | 135,002 | 530.3 | 3.641 M |
+

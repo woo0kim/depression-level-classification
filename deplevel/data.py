@@ -114,12 +114,19 @@ def load_cache(cache_path):
         return {k: z[k] for k in z.files}
 
 
-def segment(signals, sfreq=TARGET_SFREQ, segment_s=SEGMENT_S):
-    """(n_subjects, n_ch, n_times) -> (n_subjects, n_segments, n_ch, seg_len), non-overlapping."""
+def segment(signals, sfreq=TARGET_SFREQ, segment_s=SEGMENT_S, overlap=0.0):
+    """(n_subjects, n_ch, n_times) -> (n_subjects, n_segments, n_ch, seg_len).
+
+    Windows of `segment_s` seconds with fractional `overlap` between neighbours
+    (0 = non-overlapping, 0.75 = 1-s windows every 0.25 s).
+    """
     seg_len = int(round(segment_s * sfreq))
-    n_sub, n_ch, n_times = signals.shape
-    n_seg = n_times // seg_len
-    x = signals[:, :, :n_seg * seg_len].reshape(n_sub, n_ch, n_seg, seg_len)
+    step = int(round(seg_len * (1 - overlap)))
+    if not 0 < step <= seg_len:
+        raise ValueError(f"overlap must be in [0, 1), got {overlap}")
+    # Returned as a strided view (no copy). Keep it that way: the memory layout sets the summation
+    # order of the float32 mean/std in standardize(), so a contiguous copy changes results slightly.
+    x = np.lib.stride_tricks.sliding_window_view(signals, seg_len, axis=2)[:, :, ::step]
     return x.transpose(0, 2, 1, 3)
 
 
@@ -183,3 +190,15 @@ def task_subset(severity, task):
     idx = np.array([i for i, s in enumerate(severity) if s in mapping])
     y = np.array([mapping[severity[i]] for i in idx])
     return idx, y
+
+
+def standardize(train, *others):
+    """Channel-wise z-score with statistics from the training subjects only."""
+    mean = train.mean(axis=(0, 1, 3), keepdims=True)
+    std = train.std(axis=(0, 1, 3), keepdims=True)
+    return [(a - mean) / std for a in (train, *others)]
+
+
+def flat(x, y):
+    """(n_sub, n_seg, ch, t), (n_sub,) -> (n_sub*n_seg, ch, t), (n_sub*n_seg,)."""
+    return x.reshape(-1, *x.shape[2:]), np.repeat(y, x.shape[1])
